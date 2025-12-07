@@ -294,6 +294,16 @@ body {
     background-clip: text;
 }
 
+.project-name a {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.project-name a:hover {
+    opacity: 0.7;
+}
+
 .project-desc {
     color: var(--muted);
     margin: 0.5rem 0;
@@ -324,46 +334,32 @@ body {
     box-shadow: 0 0 20px rgba(34, 211, 238, 0.2);
 }
 
-/* ===== Skill Bars ===== */
-.skill-row {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin: 1rem 0;
+/* ===== Skill Groups ===== */
+.skill-group {
+    margin-bottom: 1.5rem;
 }
 
-.skill-name {
-    width: 110px;
-    font-size: 0.8rem;
+.skill-group:last-child {
+    margin-bottom: 0;
+}
+
+.skill-label {
+    display: inline-block;
+    font-size: 0.7rem;
+    color: var(--purple);
+    margin-bottom: 0.75rem;
+    text-transform: lowercase;
+}
+
+.skill-label::before {
+    content: '// ';
     color: var(--muted);
 }
 
-.skill-bar {
-    flex: 1;
-    height: 6px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 3px;
-    overflow: hidden;
-}
-
-.skill-fill {
-    height: 100%;
-    border-radius: 3px;
-    background: linear-gradient(90deg, var(--purple), var(--pink), var(--cyan));
-    box-shadow: 0 0 20px var(--glow-purple);
-    animation: skillLoad 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    transform: scaleX(0);
-    transform-origin: left;
-}
-
-.skill-row:nth-child(1) .skill-fill { animation-delay: 0.6s; }
-.skill-row:nth-child(2) .skill-fill { animation-delay: 0.7s; }
-.skill-row:nth-child(3) .skill-fill { animation-delay: 0.8s; }
-.skill-row:nth-child(4) .skill-fill { animation-delay: 0.9s; }
-.skill-row:nth-child(5) .skill-fill { animation-delay: 1.0s; }
-
-@keyframes skillLoad {
-    to { transform: scaleX(1); }
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
 }
 
 /* ===== Contact Links ===== */

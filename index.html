@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morgan Carroll - Portfolio</title>
+    <title>Morgan O'Carroll</title>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -36,10 +36,10 @@
                 </pre>
                 <div class="hero-content">
                     <span class="prompt">❯ </span><span class="command">whoami</span>
-                    <div class="output">Software Developer // Systems Programmer // Security Enthusiast</div>
+                    <div class="output">Software Developer // Systems Programmer // Computer Science Grad</div>
                     
                     <span class="prompt">❯ </span><span class="command">cat about.txt</span>
-                    <div class="output">I build things from the bits up. Interested in low-level systems, binary formats, and the code that runs beneath every abstraction.</div>
+                    <div class="output">Architect of the digital unknown. Interested in AWS, space, and code that runs hardware.</div>
 
                     <div class="status">
                         <div class="status-dot"></div>
@@ -58,10 +58,10 @@
                 <span class="terminal-title">projects.sh</span>
             </div>
             <div class="terminal-body">
-                <span class="prompt">❯ </span><span class="command">ls ~/projects --detailed</span>
+                <span class="prompt">❯ </span><span class="command">ls ~/projects --verbose</span>
                 <div class="output">
                     <div class="project-item">
-                        <div class="project-name">ppm-image-viewer</div>
+                        <div class="project-name"><a href="https://github.com/OCarrollM/cImageViewer" target="_blank">ppm-image-viewer</a></div>
                         <div class="project-desc">Binary PPM parser and renderer. Reads pixel data byte-by-byte and displays via SDL2.</div>
                         <div class="project-tech">
                             <span class="tech-tag">C</span>
@@ -71,22 +71,22 @@
                     </div>
 
                     <div class="project-item">
-                        <div class="project-name">barebones-os</div>
+                        <div class="project-name"><a href="https://github.com/OCarrollM/pumpsOS" target="_blank">pumps-os</a></div>
                         <div class="project-desc">Operating system from scratch. VGA text mode, terminal scrolling, kernel fundamentals.</div>
                         <div class="project-tech">
                             <span class="tech-tag">Assembly</span>
                             <span class="tech-tag">C</span>
-                            <span class="tech-tag">x86</span>
+                            <span class="tech-tag">QEMU</span>
                         </div>
                     </div>
 
                     <div class="project-item">
-                        <div class="project-name">security-research</div>
-                        <div class="project-desc">CTF writeups, penetration testing challenges, vulnerability research.</div>
+                        <div class="project-name"><a href="https://github.com/OCarrollM/aws-gym-tracker" target="_blank">hyper-track</a></div>
+                        <div class="project-desc">AWS backed gym tracker, cloud architecture, backend fundamentals.</div>
                         <div class="project-tech">
-                            <span class="tech-tag">Security</span>
-                            <span class="tech-tag">Linux</span>
+                            <span class="tech-tag">AWS</span>
                             <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Cloud Systems</span>
                         </div>
                     </div>
                 </div>
@@ -102,27 +102,37 @@
                 <span class="terminal-title">skills --visualize</span>
             </div>
             <div class="terminal-body">
-                <span class="prompt">❯ </span><span class="command">./analyze-skills.sh</span>
+                <span class="prompt">❯ </span><span class="command">cat ~/.skills</span>
                 <div class="output">
-                    <div class="skill-row">
-                        <span class="skill-name">C / Systems</span>
-                        <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
+                    <div class="skill-group">
+                        <span class="skill-label">languages</span>
+                        <div class="skill-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">C</span>
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Assembly</span>
+                        </div>
                     </div>
-                    <div class="skill-row">
-                        <span class="skill-name">Python</span>
-                        <div class="skill-bar"><div class="skill-fill" style="width: 85%;"></div></div>
+
+                    <div class="skill-group">
+                        <span class="skill-label">tools</span>
+                        <div class="skill-tags">
+                            <span class="tech-tag">Git</span>
+                            <span class="tech-tag">Linux</span>
+                            <span class="tech-tag">AWS</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">SDL2</span>
+                        </div>
                     </div>
-                    <div class="skill-row">
-                        <span class="skill-name">JavaScript</span>
-                        <div class="skill-bar"><div class="skill-fill" style="width: 80%;"></div></div>
-                    </div>
-                    <div class="skill-row">
-                        <span class="skill-name">TypeScript</span>
-                        <div class="skill-bar"><div class="skill-fill" style="width: 75%;"></div></div>
-                    </div>
-                    <div class="skill-row">
-                        <span class="skill-name">Linux</span>
-                        <div class="skill-bar"><div class="skill-fill" style="width: 85%;"></div></div>
+
+                    <div class="skill-group">
+                        <span class="skill-label">interests</span>
+                        <div class="skill-tags">
+                            <span class="tech-tag">Systems Engineering</span>
+                            <span class="tech-tag">Cloud Architecture</span>
+                            <span class="tech-tag">OS Development</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -140,9 +150,10 @@
                 <span class="prompt">❯ </span><span class="command">cat ~/.socials</span>
                 <div class="output">
                     <div class="link-grid">
-                        <a href="#" class="link-btn"><span>⌘</span> GitHub</a>
-                        <a href="#" class="link-btn"><span>◉</span> LinkedIn</a>
-                        <a href="#" class="link-btn"><span>✉</span> Email</a>
+                        <a href="https://github.com/OCarrollM" class="link-btn" target="_blank"><span>⌘</span> GitHub</a>
+                        <a href="https://www.linkedin.com/in/morganocarroll/" class="link-btn" target="_blank"><span>◉</span> LinkedIn</a>
+                        <a href="mailto:morganocarroll01@gmail.com" class="link-btn"><span>✉</span> Email</a>
+                        <a href="#" download class="link-btn"><span>↓</span> CV</a>
                     </div>
                 </div>
                 <div class="terminal-input">
