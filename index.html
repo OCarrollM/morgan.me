@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morgan Carroll - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="gradient-bg"></div>
+    <div class="grid-overlay"></div>
+    <div class="scanlines"></div>
+
+    <div class="container">
+        <!-- Hero Terminal -->
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-dot red"></div>
+                <div class="terminal-dot yellow"></div>
+                <div class="terminal-dot green"></div>
+                <span class="terminal-title">morgan@portfolio:~</span>
+            </div>
+            <div class="terminal-body">
+                <span class="prompt">❯ </span><span class="command">neofetch</span>
+
+                <pre class="ascii-art">
+                    
+ ███╗   ███╗ ██████╗ ██████╗  ██████╗  █████╗ ███╗   ██╗
+ ████╗ ████║██╔═══██╗██╔══██╗██╔════╝ ██╔══██╗████╗  ██║
+ ██╔████╔██║██║   ██║██████╔╝██║  ███╗███████║██╔██╗ ██║
+ ██║╚██╔╝██║██║   ██║██╔══██╗██║   ██║██╔══██║██║╚██╗██║
+ ██║ ╚═╝ ██║╚██████╔╝██║  ██║╚██████╔╝██║  ██║██║ ╚████║
+ ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝
+                     O'CARROLL
+                </pre>
+                <div class="hero-content">
+                    <span class="prompt">❯ </span><span class="command">whoami</span>
+                    <div class="output">Software Developer // Systems Programmer // Security Enthusiast</div>
+                    
+                    <span class="prompt">❯ </span><span class="command">cat about.txt</span>
+                    <div class="output">I build things from the bits up. Interested in low-level systems, binary formats, and the code that runs beneath every abstraction.</div>
+
+                    <div class="status">
+                        <div class="status-dot"></div>
+                        <span class="status-text">Available for opportunities</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Terminal -->
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-dot red"></div>
+                <div class="terminal-dot yellow"></div>
+                <div class="terminal-dot green"></div>
+                <span class="terminal-title">projects.sh</span>
+            </div>
+            <div class="terminal-body">
+                <span class="prompt">❯ </span><span class="command">ls ~/projects --detailed</span>
+                <div class="output">
+                    <div class="project-item">
+                        <div class="project-name">ppm-image-viewer</div>
+                        <div class="project-desc">Binary PPM parser and renderer. Reads pixel data byte-by-byte and displays via SDL2.</div>
+                        <div class="project-tech">
+                            <span class="tech-tag">C</span>
+                            <span class="tech-tag">SDL2</span>
+                            <span class="tech-tag">Binary I/O</span>
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="project-name">barebones-os</div>
+                        <div class="project-desc">Operating system from scratch. VGA text mode, terminal scrolling, kernel fundamentals.</div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Assembly</span>
+                            <span class="tech-tag">C</span>
+                            <span class="tech-tag">x86</span>
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="project-name">security-research</div>
+                        <div class="project-desc">CTF writeups, penetration testing challenges, vulnerability research.</div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Security</span>
+                            <span class="tech-tag">Linux</span>
+                            <span class="tech-tag">Python</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills Terminal -->
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-dot red"></div>
+                <div class="terminal-dot yellow"></div>
+                <div class="terminal-dot green"></div>
+                <span class="terminal-title">skills --visualize</span>
+            </div>
+            <div class="terminal-body">
+                <span class="prompt">❯ </span><span class="command">./analyze-skills.sh</span>
+                <div class="output">
+                    <div class="skill-row">
+                        <span class="skill-name">C / Systems</span>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-name">Python</span>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 85%;"></div></div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-name">JavaScript</span>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 80%;"></div></div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-name">TypeScript</span>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 75%;"></div></div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-name">Linux</span>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 85%;"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Terminal -->
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-dot red"></div>
+                <div class="terminal-dot yellow"></div>
+                <div class="terminal-dot green"></div>
+                <span class="terminal-title">contact.sh</span>
+            </div>
+            <div class="terminal-body">
+                <span class="prompt">❯ </span><span class="command">cat ~/.socials</span>
+                <div class="output">
+                    <div class="link-grid">
+                        <a href="#" class="link-btn"><span>⌘</span> GitHub</a>
+                        <a href="#" class="link-btn"><span>◉</span> LinkedIn</a>
+                        <a href="#" class="link-btn"><span>✉</span> Email</a>
+                    </div>
+                </div>
+                <div class="terminal-input">
+                    <span class="prompt">❯ </span><span class="cursor"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
