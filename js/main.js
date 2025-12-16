@@ -194,29 +194,29 @@ document.addEventListener('DOMContentLoaded', () => {
     terminals.forEach(terminal => terminalObserver.observe(terminal));
 
     // scroll triggering
-    const projectItems = document.querySelectorAll('.project-item');
-    const expItems = document.querySelectorAll('.exp-item');
-    const animatedItems = [...projectItems, ...expItems];
+        const observeItems = (selector) => {
+        const items = document.querySelectorAll(selector);
+        
+        items.forEach((item, index) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateX(-20px)';
+            item.style.transition = `all 0.5s cubic-bezier(0.16, 1, 0.3, 1) ${index * 0.1}s`;
+        });
 
-    animatedItems.forEach(item => {
-        item.style.opacity = '0';
-        item.style.transform = 'translateX(-20px)';
-        item.style.transition = 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
-    });
-
-    const itemObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-                setTimeout(() => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateX(0)';
-                }, index * 100);
-                itemObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
+                }
+            });
+        }, { threshold: 0.1 });
 
-    animatedItems.forEach(item => itemObserver.observe(item));
+        items.forEach(item => observer.observe(item));
+    };
+
+    observeItems('.project-item');
+    observeItems('.exp-item');
 
     // easter egg!
     const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];

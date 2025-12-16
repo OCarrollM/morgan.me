@@ -245,6 +245,21 @@ body {
     }
 }
 
+.cursor {
+    display: inline-block;
+    width: 10px;
+    height: 1.2em;
+    background: linear-gradient(135deg, var(--purple), var(--pink));
+    animation: blink 1s step-end infinite;
+    vertical-align: text-bottom;
+    box-shadow: 0 0 15px var(--glow-purple);
+}
+
+@keyframes blink {
+    0%, 100% { visibility: visible; }
+    50% { visibility: hidden; }
+}
+
 /* ===== ASCII Art ===== */
 .ascii-art {
     font-size: clamp(0.55rem, 1.8vw, 1rem);
@@ -710,6 +725,8 @@ body {
     border: 2px solid transparent;
     cursor: pointer;
     transition: all 0.3s;
+    padding: 0;
+    outline: none;
 }
 
 .theme-btn:hover {
@@ -721,10 +738,21 @@ body {
     box-shadow: 0 0 15px currentColor;
 }
 
-.theme-btn[data-theme="purple"] { background: linear-gradient(135 deg, #a855f7, #ec4899); } 
-.theme-btn[data-theme="green"] { background: linear-gradient(135 deg, #22c55e, #10b981); }
-.theme-btn[data-theme="blue"] { background: linear-gradient(135 deg, #3b82f6, #22d3ee); }
-.theme-btn[data-theme="orange"] { background: linear-gradient(135 deg, #f97316, #eab308); }
+.theme-btn[data-theme="purple"] { 
+    background: linear-gradient(135deg, #a855f7, #ec4899) !important; 
+}
+
+.theme-btn[data-theme="green"] { 
+    background: linear-gradient(135deg, #22c55e, #10b981) !important; 
+}
+
+.theme-btn[data-theme="blue"] { 
+    background: linear-gradient(135deg, #3b82f6, #22d3ee) !important; 
+}
+
+.theme-btn[data-theme="orange"] { 
+    background: linear-gradient(135deg, #f97316, #eab308) !important; 
+}
 
 /* Vaiables */
 [data-theme="green"] {
