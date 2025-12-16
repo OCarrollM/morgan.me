@@ -192,6 +192,7 @@ body {
 .command {
     color: var(--cyan);
     text-shadow: 0 0 20px var(--glow-cyan);
+    opacity: 0;
 }
 
 .output {
@@ -200,18 +201,48 @@ body {
 }
 
 /* ===== Cursor ===== */
-.cursor {
-    display: inline-block;
-    width: 10px;
-    height: 1.2em;
-    background: linear-gradient(135deg, var(--purple), var(--pink));
-    animation: blink 1s step-end infinite;
-    vertical-align: text-bottom;
-    box-shadow: 0 0 15px var(--glow-purple);
-}
+@media (pointer: fine) {
+    *, *::before, *::after {
+        cursor: none !important;
+    }
 
-@keyframes blink {
-    50% { opacity: 0; }
+    html, body {
+        cursor: none !important;
+    }
+
+    a, button, input, textarea, select, [onclick] {
+        cursor: none !important;
+    }
+
+    .custom-cursor {
+        position: fixed;
+        width: 20px;
+        height: 20px;
+        border: 2px solid var(--cyan);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 999999;
+        transition: transform 0.1s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        box-shadow: 0 0 15px var(--glow-cyan);
+        mix-blend-mode: difference;
+    }
+
+    .custom-cursor.clicking {
+        transform: scale(0.8);
+        border-color: var(--pink);
+        box-shadow: 0 0 20px var(--glow-pink);
+    }
+
+    .custom-cursor-dot {
+        position: fixed;
+        width: 6px;
+        height: 6px;
+        background: var(--pink);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 999999;
+        box-shadow: 0 0 10px var(--glow-pink);
+    }
 }
 
 /* ===== ASCII Art ===== */
@@ -390,9 +421,9 @@ body {
     }
 }
 
-.command {
+/* .command {
     visibility: hidden;
-}
+} */
 
 /* === Experience === */
 
@@ -761,6 +792,12 @@ body {
 }
 
 /* === Mobile support === */
+@media (min-width: 769px) {
+    .mobile-nav {
+        display: none;
+    }
+}
+
 .mobile-nav {
     position: fixed;
     bottom: 2rem;

@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const text = cmd.dataset.text || cmd.textContent;
         cmd.dataset.text = text;
         cmd.textContent = '';
-        cmd.style.visibility = 'visibile';
+        cmd.style.opacity = '1';
 
         let charIndex = 0;
         const type = () => {
@@ -195,28 +195,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // scroll triggering
     const projectItems = document.querySelectorAll('.project-item');
-    projectItems.forEach(item => {
+    const expItems = document.querySelectorAll('.exp-item');
+    const animatedItems = [...projectItems, ...expItems];
+
+    animatedItems.forEach(item => {
         item.style.opacity = '0';
-        item.style.opacity = 'translateX(-20px)';
+        item.style.transform = 'translateX(-20px)';
+        item.style.transition = 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
     });
 
-    const projectObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+    const itemObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
             if (entry.isIntersecting) {
-                const items = entry.target.querySelectorAll('.project-item');
-                items.forEach((item, index) => {
-                    setTimeout(() => {
-                        item.style.transition = 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
-                        item.style.opacity = '1';
-                        item.style.transform = 'translateX(0)';
-                    }, index * 150);
-                });
+                setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateX(0)';
+                }, index * 100);
+                itemObserver.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.2 });
+    }, { threshold: 0.1 });
 
-    const projectsTerminal = document.querySelectorAll('.terminal')[1];
-    if (projectsTerminal) projectObserver.observe(projectsTerminal);
+    animatedItems.forEach(item => itemObserver.observe(item));
 
     // easter egg!
     const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
