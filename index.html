@@ -8,6 +8,16 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <nav class="mobile-nav">
+        <button class="nav-toggle" id="navToggle">☰</button>
+        <div class="nav-menu" id="navMenu">
+            <a href="#" data-section="1">Home</a>
+            <a href="#" data-section="2">Projects</a>
+            <a href="#" data-section="3">Experience</a>
+            <a href="#" data-section="4">Skills</a>
+            <a href="#" data-section="5">Contact</a>
+        </div>
+    </nav>
     <div class="gradient-bg"></div>
     <div class="grid-overlay"></div>
     <div class="scanlines"></div>
@@ -44,6 +54,7 @@
                         <div class="neofetch-line"><span class="nf-key">Shell:</span> creativity</div>
                         <div class="neofetch-line"><span class="nf-key">Languages:</span> C, Python, Java</div>
                         <div class="neofetch-line"><span class="nf-key">Interests:</span> Space, Systems, AWS</div>
+                        <div class="neofetch-line"><span class="nf-ket">Visitors:</span> <span id="visitor-count">-</span> online</div>
                         <div class="neofetch-colors">
                             <span class="nf-color c1"></span>
                             <span class="nf-color c2"></span>
@@ -62,6 +73,18 @@
                     <div class="status">
                         <div class="status-dot"></div>
                         <span class="status-text">Open to work</span>
+                    </div>
+                </div>
+                <div class="theme-switcher">
+                    <span class="prompt">❯ </span><span class="command-static">theme</span>
+                    <div class="theme-options">
+                        <button class="theme-btn active" data-theme="purple" title="Purple Neon"></button>
+                        <button class="theme-btn" data-theme="green" title="Matrix Green"></button>
+                        <button class="theme-btn" data-theme="blue" title="Ice Blue"></button>
+                        <button class="theme-btn" data-theme="orange" title="Solar Flare"></button>
+                        <button class="matrix-toggle" id="matrixToggle" title="Toggle Matrix Rain">
+                            <span>▣</span> Matrix
+                        </button>
                     </div>
                 </div>
             </div>
