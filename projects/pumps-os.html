@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PumpsOS - Morgan O'Carroll</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⌘</text></svg>">
+</head>
+<body>
+    <div class="gradient-bg"></div>
+    <div class="grid-overlay"></div>
+    <div class="scanlines"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="page-header">
+            <a href="./" class="back-link">
+                <span class="prompt">❯ </span><span class="command-static">cd ~/projects</span>
+            </a>
+            <h1 class="page-title">PumpsOS</h1>
+            <p class="page-desc">A hobby operating system built from scratch.</p>
+            <div class="project-meta">
+                <span class="tech-tag">Assembly</span>
+                <span class="tech-tag">C</span>
+                <span class="tech-tag">QEMU</span>
+            </div>
+        </div>
+
+        <!-- Project Content -->
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-dot red"></div>
+                <div class="terminal-dot yellow"></div>
+                <div class="terminal-dot green"></div>
+                <span class="terminal-title">project-overview.md</span>
+            </div>
+            <div class="terminal-body">
+                <div class="project-section">
+                    <h2 class="section-heading"><span class="prompt">## </span>What is it?</h2>
+                    <p class="section-text">
+                        PumpsOS is my journey into operating system development — building a kernel from absolute scratch. No GRUB, no Linux, no training wheels. Just assembly, C, and a lot of documentation reading and help from OSDevers.
+                    </p>
+                </div>
+
+                <div class="project-section">
+                    <h2 class="section-heading"><span class="prompt">## </span>Why I built it</h2>
+                    <p class="section-text">
+                        Because understanding operating systems from textbooks isn't the same as building one. I took a course in Operating Systems and I wanted to know exactly what happens from the moment a computer boots to the first pixel appearing on screen. Something that only hands-on experience could deliver. Although without the knowledge of the module, I would not of had this idea in the first place. Thank you Professor Andrew Scott
+                    </p>
+                </div>
+
+                <div class="project-section">
+                    <h2 class="section-heading"><span class="prompt">## </span>Features implemented</h2>
+                    <p class="section-text">
+                        Being an on-going project, there are many features still to come! But some currently include:
+                    </p>
+                    <ul class="section-list">
+                        <li>Custom bootloader in Assembly</li>
+                        <li>VGA text mode driver</li>
+                        <li>Terminal with scrolling</li>
+                        <li>PS/2 keyboard driver</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h2 class="section-heading"><span class="prompt">## </span>Challenges</h2>
+                    <ul class="section-list">
+                        <li>Protected mode transition - one wrong bit and everything crashes</li>
+                        <li>Debugging without a debugger - need a real sharp eye for this one</li>
+                        <li>Scan code tables for keyboard input - hundreds of lines</li>
+                        <li>Memory management without malloc</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h2 class="section-heading"><span class="prompt">## </span>What I learned</h2>
+                    <ul class="section-list">
+                        <li>x86 architecture and real/protected mode</li>
+                        <li>How hardware interrupts work</li>
+                        <li>VGA memory-mapped I/O</li>
+                        <li>The boot process in detail</li>
+                        <li>Cross-compilation and bare-metal development</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Links -->
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-dot red"></div>
+                <div class="terminal-dot yellow"></div>
+                <div class="terminal-dot green"></div>
+                <span class="terminal-title">links.sh</span>
+            </div>
+            <div class="terminal-body">
+                <span class="prompt">❯ </span><span class="command-static">cat ./links</span>
+                <div class="output">
+                    <div class="link-grid">
+                        <a href="https://github.com/OCarrollM/pumpsOS" target="_blank" class="link-btn"><span>⌘</span> View on GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="mobile-nav">
+        <button class="nav-toggle" id="navToggle">☰</button>
+        <div class="nav-menu" id="navMenu">
+            <a href="../">Home</a>
+            <a href="./">All Projects</a>
+            <a href="../#contact">Contact</a>
+        </div>
+    </nav>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

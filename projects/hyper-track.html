@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HyperTrack - Morgan O'Carroll</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⌘</text></svg>">
+</head>
+<body>
+    <div class="gradient-bg"></div>
+    <div class="grid-overlay"></div>
+    <div class="scanlines"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="page-header">
+            <a href="./" class="back-link">
+                <span class="prompt">❯ </span><span class="command-static">cd ~/projects</span>
+            </a>
+            <h1 class="page-title">HyperTrack</h1>
+            <p class="page-desc">Cloud-native gym tracking application powered by AWS.</p>
+            <div class="project-meta">
+                <span class="tech-tag">AWS</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Cloud Systems</span>
+            </div>
+        </div>
+
+        <!-- Project Content -->
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-dot red"></div>
+                <div class="terminal-dot yellow"></div>
+                <div class="terminal-dot green"></div>
+                <span class="terminal-title">project-overview.md</span>
+            </div>
+            <div class="terminal-body">
+                <div class="project-section">
+                    <h2 class="section-heading"><span class="prompt">## </span>What is it?</h2>
+                    <p class="section-text">
+                        HyperTrack is a gym workout tracker built on AWS infrastructure. It's designed to learn cloud architecture patterns while building something actually useful.
+                    </p>
+                </div>
+
+                <div class="project-section">
+                    <h2 class="section-heading"><span class="prompt">## </span>Why I built it</h2>
+                    <p class="section-text">
+                        I wanted hands-on experience with AWS beyond just tutorials. Building a real application with authentication, databases, and APIs taught me more than any certification course could.
+                    </p>
+                </div>
+
+                <div class="project-section">
+                    <h2 class="section-heading"><span class="prompt">## </span>Architecture</h2>
+                    <ul class="section-list">
+                        <li>API Gateway for RESTful endpoints</li>
+                        <li>Lambda functions for serverless compute</li>
+                        <li>DynamoDB for workout data storage</li>
+                        <li>Cognito for user authentication</li>
+                        <li>S3 for static asset hosting</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h2 class="section-heading"><span class="prompt">## </span>Challenges</h2>
+                    <ul class="section-list">
+                        <li>IAM permissions — getting the right balance of security and functionality</li>
+                        <li>Cold start latency with Lambda</li>
+                        <li>DynamoDB data modeling for efficient queries</li>
+                        <li>CORS configuration headaches</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h2 class="section-heading"><span class="prompt">## </span>What I learned</h2>
+                    <ul class="section-list">
+                        <li>Serverless architecture patterns</li>
+                        <li>Infrastructure as Code with CloudFormation</li>
+                        <li>NoSQL data modeling</li>
+                        <li>API design and authentication flows</li>
+                        <li>Cost optimization in the cloud</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Links -->
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-dot red"></div>
+                <div class="terminal-dot yellow"></div>
+                <div class="terminal-dot green"></div>
+                <span class="terminal-title">links.sh</span>
+            </div>
+            <div class="terminal-body">
+                <span class="prompt">❯ </span><span class="command-static">cat ./links</span>
+                <div class="output">
+                    <div class="link-grid">
+                        <a href="https://github.com/OCarrollM/aws-gym-tracker" target="_blank" class="link-btn"><span>⌘</span> View on GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="mobile-nav">
+        <button class="nav-toggle" id="navToggle">☰</button>
+        <div class="nav-menu" id="navMenu">
+            <a href="../">Home</a>
+            <a href="./">All Projects</a>
+            <a href="../#contact">Contact</a>
+        </div>
+    </nav>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
