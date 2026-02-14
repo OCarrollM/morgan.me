@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACCESS RESTRICTED</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap">
+    <link rel="stylesheet" href="../css/classifiedstyle.css">
+</head>
+<body class="screen-flicker">
+    <div class="terminal-container">
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="terminal-buttons">
+                    <span class="terminal-btn red"></span>
+                    <span class="terminal-btn yellow"></span>
+                    <span class="terminal-btn green"></span>
+                </div>
+                <span class="terminal-title">PROJECT_RSVP // SECURE TERMINAL v4.7.2</span>
+            </div>
+            <div class="terminal-body">
+                
+                <!-- BOOT SEQUENCE -->
+                <div id="boot-screen">
+                    <div class="boot-line" data-delay="0">[SYSTEM] Initializing secure connection...</div>
+                    <div class="boot-line" data-delay="400">[SYSTEM] Loading encryption modules... OK</div>
+                    <div class="boot-line" data-delay="800">[SYSTEM] Establishing quantum tunnel... OK</div>
+                    <div class="boot-line" data-delay="1200">[SYSTEM] Verifying network integrity... OK</div>
+                    <div class="boot-line warning" data-delay="1600">[WARNING] Unauthorized access attempt detected</div>
+                    <div class="boot-line warning" data-delay="2000">[WARNING] Tracing connection origin...</div>
+                    <div class="boot-line error" data-delay="2400">[ALERT] INTRUDER DETECTED - SECTOR 7</div>
+                    <div class="boot-line" data-delay="2800">[SYSTEM] Deploying countermeasures...</div>
+                    <div class="boot-line" data-delay="3200">[SYSTEM] Countermeasures failed.</div>
+                    <div class="boot-line success" data-delay="3600">[SYSTEM] Connection established.</div>
+                    <div class="boot-line success" data-delay="4000">[SYSTEM] Welcome to PROJECT RSVP.</div>
+                    <div class="boot-line" data-delay="4400">[SYSTEM] Authentication required.</div>
+                    <div class="boot-line" data-delay="4800">[SYSTEM] Loading login interface...</div>
+                </div>
+
+                <!-- STAGE 1: LOGIN -->
+                <div id="login-stage">
+                    <div class="classified-banner">
+                        <h1 class="glitch" data-text="CLASSIFIED">CLASSIFIED</h1>
+                        <p>CLEARANCE LEVEL: ULTRA // PROJECT RSVP</p>
+                    </div>
+
+                    <div class="login-form">
+                        <div class="input-group">
+                            <label>&gt; ENTER AGENT IDENTIFIER:</label>
+                            <input type="text" id="username" placeholder="USERNAME" autocomplete="off">
+                        </div>
+                        <div class="input-group">
+                            <label>&gt; ENTER ACCESS CODE:</label>
+                            <input type="password" id="password" placeholder="PASSWORD" autocomplete="off">
+                        </div>
+                        <button class="submit-btn" id="login-btn">[ AUTHENTICATE ]</button>
+                        <p class="error-msg" id="login-error">ACCESS DENIED - INVALID CREDENTIALS</p>
+                        <p class="hint-text">Perhaps the system logs contain something useful...</p>
+                    </div>
+
+                    <!-- Hidden clue in system log -->
+                    <div class="system-log">
+                        <p>[2024-03-15 09:14:22] System backup completed</p>
+                        <p>[2024-03-15 09:15:01] User activity: /var/logs cleared</p>
+                        <p>[2024-03-15 09:15:45] Maintenance mode disabled</p>
+                        <p>[2024-03-15 09:16:33] AUTH_DEBUG: Default credentials reminder</p>
+                        <p>[2024-03-15 09:16:34] AUTH_DEBUG: usr=taskmaster pwd=shadowgate</p>
+                        <p>[2024-03-15 09:16:35] AUTH_DEBUG: TODO - remove before deployment</p>
+                        <p>[2024-03-15 09:17:02] Firewall rules updated</p>
+                        <p>[2024-03-15 09:18:11] Connection pool: 47/100</p>
+                        <p>[2024-03-15 09:19:44] Memory usage: 67%</p>
+                    </div>
+                </div>
+
+                <!-- STAGE 2: CIPHER -->
+                <div id="cipher-stage">
+                    <div class="access-granted">
+                        ✓ AUTHENTICATION SUCCESSFUL - WELCOME, AGENT
+                    </div>
+
+                    <div class="transmission-box">
+                        <div class="transmission-header">ENCRYPTED TRANSMISSION DETECTED</div>
+                        <div class="encrypted-message" id="cipher-text">
+                            GHDU WDVN PDVWHU, L, PRUJDQ R'FDUUROO, KXPEOB DFFHSW BRXU FKDOOHQJH.
+                        </div>
+                    </div>
+
+                    <div class="cipher-instructions">
+                        <h3>&gt; DECRYPTION PROTOCOL</h3>
+                        <p>The transmission has been intercepted but remains encrypted.</p>
+                        <p>Intelligence suggests a classical substitution cipher was used.</p>
+                        <p>Your mission: Decode the message and enter the FIRST WORD to confirm receipt.</p>
+                        
+                        <div class="cipher-clue">
+                            "In the days of Caesar, secrets were kept by shifting the alphabet. 
+                            The key lies THREE steps back from where you stand."
+                        </div>
+                    </div>
+
+                    <input type="text" class="decode-input" id="decode-input" placeholder="ENTER FIRST WORD" autocomplete="off">
+                    <button class="submit-btn" id="decode-btn">[ DECRYPT TRANSMISSION ]</button>
+                    <p class="error-msg" id="decode-error">DECRYPTION FAILED - INCORRECT KEY</p>
+                </div>
+
+                <!-- FINAL REVEAL -->
+                <div id="final-stage">
+                    <div class="reveal-container">
+                        <div class="transmission-decrypted">
+                            ▓▓▓ TRANSMISSION DECRYPTED ▓▓▓
+                        </div>
+
+                        <div class="final-message" id="final-message">
+                            <span id="message-text"></span>
+                        </div>
+
+                        <div class="countdown-container">
+                            <div class="countdown-label">⚠ SYSTEM PURGE INITIATED ⚠</div>
+                            <div class="countdown-timer" id="countdown">60</div>
+                            <div class="purge-warning">ALL DATA WILL BE DESTROYED</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <button class="audio-toggle" id="audio-toggle">🔊 SOUND: OFF</button>
+
+    <script>
+        // Audio context
+        let audioCtx = null;
+        let soundEnabled = false;
+
+        document.getElementById('audio-toggle').addEventListener('click', () => {
+            soundEnabled = !soundEnabled;
+            document.getElementById('audio-toggle').textContent = soundEnabled ? '🔊 SOUND: ON' : '🔊 SOUND: OFF';
+            if (soundEnabled && !audioCtx) {
+                audioCtx = new (window.audioContext || window.webkitAudioContext)();
+            }
+        });
+
+        function playBeep(frequency = 800, duration = 0.1, type = 'square') {
+            if (!soundEnabled || !audioCtx) return;
+            const oscillator = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+            oscillator.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+            oscillator.frequency.value = frequency;
+            oscillator.type = type;
+            gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + duration);
+            oscillator.start(audioCtx.currentTime);
+            oscillator.stop(audioCtx.currentTime + duration);
+        }
+
+        function playSuccess() {
+            if (!soundEnabled || !audioCtx) return;
+            playBeep(523, 0.1);
+            setTimeout(() => playBeep(659, 0.1), 100);
+            setTimeout(() => playBeep(784, 0.2), 200);
+        }
+
+        function playError() {
+            if (!soundEnabled || !audioCtx) return;
+            let count = 0;
+            const alarm = setInterval(() => {
+                playBeep(count % 2 === 0 ? 800 : 600, 0.2);
+                count++;
+                if (count > 6) clearInterval(alarm);
+            }, 300);
+        }
+
+        // Boot sequence
+        document.addEventListener('DOMContentLoaded', () => {
+            const bootLines = document.querySelectorAll('.boot-line');
+            bootLines.forEach((line, index) => {
+                const delay = parseInt(line.dataset.delay);
+                setTimeout(() => {
+                    line.classList.add('visible');
+                    playBeep(400 + (index * 50), 0.05);
+                }, delay);
+            });
+
+            // Show login stage after boot
+            setTimeout(() => {
+                document.getElementById('boot-screen').style.display = 'none';
+                document.getElementById('login-stage').style.display = 'block';
+                playBeep(1000, 0.2);
+            }, 5500);
+        });
+
+        // Stage 1
+        document.getElementById('login-btn').addEventListener('click', attemptLogin);
+        document.getElementById('password').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') attemptLogin();
+        });
+
+        function attemptLogin() {
+            const username = document.getElementById('username').value.toLowerCase().trim();
+            const password = document.getElementById('password').value.toLowerCase().trim();
+            const errorMsg = document.getElementById('login-error');
+
+            // hidden creds taskmaster / shadowgate
+            if (username === 'taskmaster' && password === 'shadowgate') {
+                playSuccess();
+                document.getElementById('login-stage').style.display = 'none';
+                document.getElementById('cipher-stage').style.display = 'block';
+            } else {
+                playError();
+                errorMsg.style.display = 'block';
+                document.getElementById('login-btn').classList.add('corrupting');
+                setTimeout(() => {
+                    errorMsg.style.display = 'none';
+                    document.getElementById('login-btn').classList.remove('corrupting');
+                }, 2000);
+            }
+        }
+
+        // cipher
+        document.getElementById('decode-btn').addEventListener('click', attemptDecode);
+        document.getElementById('decode-input').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') attemptDecode();
+        });
+
+        function attemptDecode() {
+            const answer = document.getElementById('decode-input').value.toLowerCase().trim();
+            const errorMsg = document.getElementById('decode-error');
+
+            if (answer === 'dear') {
+                playSuccess();
+                // playAlarm();
+                document.getElementById('cipher-stage').style.display = 'none';
+                document.getElementById('final-stage').style.display = 'block';
+                revealMessage();
+                startCountdown();
+            } else {
+                playError();
+                errorMsg.style.display = 'block';
+                document.getElementById('decode-btn').classList.add('corrupting');
+                setTimeout(() => {
+                    errorMsg.style.display = 'none';
+                    document.getElementById('decode-btn').classList.remove('corrupting');
+                }, 2000);
+            }
+        }
+
+        // Final reveal
+        function revealMessage() {
+            const message = "DEAR TASKMASTER, I, MORGAN O'CARROLL, HUMBLY ACCEPT YOUR CHALLENGE";
+            const container = document.getElementById('message-text');
+            let index = 0;
+
+            const typeInterval = setInterval(() => {
+                if (index < message.length) {
+                    container.textContent += message[index];
+                    playBeep(600 + Math.random() * 200, 0.03);
+                    index++;
+                } else {
+                    clearInterval(typeInterval);
+                    playSuccess();
+                }
+            }, 50);
+        }
+
+        // Countdown with corruption
+        function startCountdown() {
+            let seconds = 60;
+            const timerEl = document.getElementById('countdown');
+            const finalStage = document.getElementById('final-stage');
+
+            const countdownInterval = setInterval(() => {
+                seconds--;
+                timerEl.textContent = seconds;
+
+                if (seconds <= 10) {
+                    playBeep(300, 0.1);
+                }
+
+                if (seconds <= 5) {
+                    finalStage.classList.add('corrupting');
+                }
+
+                if (seconds <= 0) {
+                    clearInterval(countdownInterval);
+                    // end
+                    document.body.innerHTML = `
+                        <div style="
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            height: 100vh;
+                            background #000;
+                            color: #00ff41;
+                            font-family: 'VT323', monospace;
+                            font-size: 48px;
+                            text-align: center;
+                            text-shadow: 0 0 30px rgba(0, 255, 65, 0.8);
+                        ">
+                            [CONNECTION TERMINATED]<br><br>
+                            <span style="font-size: 24px; color: #00aa2a;">
+                                TRANSMISSION CONFIRMED<br>
+                                AGENT MORGAN O'CARROLL - STATUS: ACTIVE
+                            </span>
+                        </div>
+                    `;
+                }
+            }, 1000);
+        }
+    </script>
+
+<!-- 
+===============================================
+CLASSIFIED DOCUMENT - PROJECT RSVP
+===============================================
+
+If you're reading this, you've found the source.
+But that's not where the real secrets lie.
+
+Look to the logs. The careless always leave traces.
+
+USERNAME: taskmaster
+PASSWORD: shadowgate
+
+The cipher? Think Roman. Think emperor. Think THREE.
+
+===============================================
+-->
+</body>
+</html>
