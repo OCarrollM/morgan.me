@@ -234,7 +234,7 @@ function AstronautRoadmap() {
             <Card>
               <Tag text="IMMEDIATE ACTIONS" color="#ff4455" />
               <div style={{ marginTop: 12 }}>
-                <Checkbox id="msc-distinction" label="Complete MSc with distinction-level dissertation (CubeSat thermal management)" checks={checks} toggle={toggle} />
+                <Checkbox id="msc-distinction" label="Complete MSc with distinction-level dissertation" checks={checks} toggle={toggle} />
                 <Checkbox id="aviation-medical" label="Book a Class 2 aviation medical examination (required for ESA application)" checks={checks} toggle={toggle} />
                 <Checkbox id="ppl-start" label="Begin Private Pilot Licence (PPL) training" checks={checks} toggle={toggle} />
                 <Checkbox id="russian-start" label="Start daily Russian language study (app + weekly tutor)" checks={checks} toggle={toggle} />
