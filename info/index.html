@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Astronaut Roadmap — Morgan O'Carroll</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Orbitron:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0e17;
+  --bg-card: #0d1220;
+  --bg-card-hover: #111830;
+  --border: #1a2744;
+  --border-glow: #00d4ff33;
+  --text: #c8d6e5;
+  --text-dim: #5a6a7e;
+  --text-bright: #e8f0f8;
+  --accent-cyan: #00d4ff;
+  --accent-green: #00ff88;
+  --accent-amber: #ffaa00;
+  --accent-magenta: #ff3388;
+  --accent-purple: #aa66ff;
+  --accent-red: #ff4455;
+  --glow-cyan: 0 0 20px #00d4ff44, 0 0 40px #00d4ff22;
+  --glow-green: 0 0 20px #00ff8844, 0 0 40px #00ff8822;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* Scanline overlay */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.03) 2px,
+    rgba(0,0,0,0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Stars background */
+.stars {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.stars::before, .stars::after {
+  content: '';
+  position: absolute;
+  width: 2px; height: 2px;
+  border-radius: 50%;
+  box-shadow:
+    120px 40px 0 0 rgba(255,255,255,0.3),
+    340px 120px 0 0 rgba(255,255,255,0.2),
+    560px 80px 0 0 rgba(255,255,255,0.4),
+    780px 200px 0 0 rgba(255,255,255,0.15),
+    900px 60px 0 0 rgba(255,255,255,0.35),
+    200px 300px 0 0 rgba(255,255,255,0.25),
+    450px 400px 0 0 rgba(255,255,255,0.3),
+    700px 350px 0 0 rgba(255,255,255,0.2),
+    150px 500px 0 0 rgba(255,255,255,0.4),
+    850px 480px 0 0 rgba(255,255,255,0.15),
+    50px 600px 0 0 rgba(255,255,255,0.3),
+    600px 550px 0 0 rgba(255,255,255,0.2),
+    1000px 100px 0 0 rgba(255,255,255,0.25),
+    1100px 300px 0 0 rgba(255,255,255,0.3),
+    1200px 500px 0 0 rgba(255,255,255,0.2),
+    300px 700px 0 0 rgba(255,255,255,0.35);
+  animation: twinkle 4s ease-in-out infinite alternate;
+}
+
+.stars::after {
+  box-shadow:
+    80px 180px 0 0 rgba(255,255,255,0.2),
+    400px 280px 0 0 rgba(255,255,255,0.35),
+    620px 150px 0 0 rgba(255,255,255,0.15),
+    800px 350px 0 0 rgba(255,255,255,0.3),
+    1050px 200px 0 0 rgba(255,255,255,0.25),
+    250px 450px 0 0 rgba(255,255,255,0.2),
+    500px 600px 0 0 rgba(255,255,255,0.4),
+    750px 100px 0 0 rgba(255,255,255,0.15),
+    950px 450px 0 0 rgba(255,255,255,0.3);
+  animation-delay: 2s;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+  padding: 40px 0;
+}
+
+.header-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--accent-cyan);
+  margin-bottom: 16px;
+  opacity: 0.8;
+}
+
+.header h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(28px, 5vw, 52px);
+  font-weight: 900;
+  letter-spacing: 3px;
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 12px;
+}
+
+.header-sub {
+  font-size: 13px;
+  color: var(--text-dim);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.header-sub span {
+  color: var(--accent-amber);
+}
+
+/* Status bar */
+.status-bar {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.status-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.status-dot.active { background: var(--accent-green); box-shadow: 0 0 8px var(--accent-green); }
+.status-dot.pending { background: var(--accent-amber); box-shadow: 0 0 8px var(--accent-amber); }
+.status-dot.future { background: var(--text-dim); }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Section */
+.section {
+  margin-bottom: 48px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.section-icon {
+  font-size: 20px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.section-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.section-years {
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-left: auto;
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 1px;
+}
+
+/* Phase colors */
+.phase-now .section-icon { background: rgba(0,212,255,0.15); border: 1px solid rgba(0,212,255,0.3); }
+.phase-now .section-title { color: var(--accent-cyan); }
+
+.phase-foundation .section-icon { background: rgba(0,255,136,0.15); border: 1px solid rgba(0,255,136,0.3); }
+.phase-foundation .section-title { color: var(--accent-green); }
+
+.phase-build .section-icon { background: rgba(255,170,0,0.15); border: 1px solid rgba(255,170,0,0.3); }
+.phase-build .section-title { color: var(--accent-amber); }
+
+.phase-advance .section-icon { background: rgba(170,102,255,0.15); border: 1px solid rgba(170,102,255,0.3); }
+.phase-advance .section-title { color: var(--accent-purple); }
+
+.phase-apply .section-icon { background: rgba(255,51,136,0.15); border: 1px solid rgba(255,51,136,0.3); }
+.phase-apply .section-title { color: var(--accent-magenta); }
+
+.phase-select .section-icon { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); }
+.phase-select .section-title { color: var(--text-bright); }
+
+/* Cards */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 24px;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-glow);
+  transform: translateY(-1px);
+}
+
+.card-tag {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-family: 'Space Mono', monospace;
+}
+
+.card h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-bright);
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.card p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--text);
+}
+
+.card ul {
+  list-style: none;
+  margin-top: 8px;
+}
+
+.card ul li {
+  font-size: 13px;
+  line-height: 1.8;
+  padding-left: 20px;
+  position: relative;
+  color: var(--text);
+}
+
+.card ul li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--text-dim);
+}
+
+/* Tag colors */
+.tag-critical { color: var(--accent-red); }
+.tag-high { color: var(--accent-amber); }
+.tag-medium { color: var(--accent-cyan); }
+.tag-ongoing { color: var(--accent-green); }
+.tag-option { color: var(--accent-purple); }
+
+/* Path comparison */
+.paths-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.path-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.path-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+
+.path-card.path-a::before { background: linear-gradient(90deg, var(--accent-cyan), var(--accent-green)); }
+.path-card.path-b::before { background: linear-gradient(90deg, var(--accent-amber), var(--accent-magenta)); }
+.path-card.path-c::before { background: linear-gradient(90deg, var(--accent-purple), var(--accent-cyan)); }
+
+.path-card h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  letter-spacing: 1px;
+}
+
+.path-card.path-a h3 { color: var(--accent-cyan); }
+.path-card.path-b h3 { color: var(--accent-amber); }
+.path-card.path-c h3 { color: var(--accent-purple); }
+
+.path-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 12px;
+  font-family: 'Space Mono', monospace;
+}
+
+.path-card p, .path-card li {
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.path-card ul { list-style: none; margin-top: 10px; }
+.path-card ul li { padding-left: 20px; position: relative; }
+.path-card ul li::before { content: '▸'; position: absolute; left: 0; color: var(--text-dim); }
+
+.pro { color: var(--accent-green); }
+.con { color: var(--accent-red); }
+
+/* Timeline connector */
+.timeline-connector {
+  width: 2px;
+  height: 32px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, var(--border), transparent);
+  position: relative;
+}
+
+.timeline-connector::after {
+  content: '↓';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--text-dim);
+  font-size: 14px;
+}
+
+/* Selection windows */
+.selection-window {
+  background: linear-gradient(135deg, rgba(0,212,255,0.05), rgba(0,255,136,0.05));
+  border: 1px dashed rgba(0,212,255,0.3);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-top: 12px;
+}
+
+.selection-window h4 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 12px;
+  color: var(--accent-cyan);
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.selection-window p {
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 60px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+  color: var(--text-dim);
+  letter-spacing: 1px;
+}
+
+.footer span { color: var(--accent-cyan); }
+
+/* Responsive */
+@media (max-width: 600px) {
+  .container { padding: 24px 16px 60px; }
+  .status-bar { gap: 12px; }
+  .paths-grid { grid-template-columns: 1fr; }
+  .card { padding: 16px; }
+}
+</style>
+</head>
+<body>
+<div class="stars"></div>
+<div class="container">
+
+  <div class="header">
+    <div class="header-label">Mission Briefing // April 2026</div>
+    <h1>ASTRONAUT ROADMAP</h1>
+    <p class="header-sub">A long-range trajectory from MSc Cyber Security at Lancaster to spaceflight — targeting <span>ESA</span>, <span>NASA</span>, and <span>commercial</span> pathways.</p>
+    <div class="status-bar">
+      <div class="status-item"><div class="status-dot active"></div> MSc Cyber Security</div>
+      <div class="status-item"><div class="status-dot active"></div> Dissertation Phase</div>
+      <div class="status-item"><div class="status-dot pending"></div> ESA Graduate Trainee Apps</div>
+      <div class="status-item"><div class="status-dot future"></div> Flight Hours</div>
+    </div>
+  </div>
+
+  <!-- SITUATION OVERVIEW -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);">📡</div>
+      <div class="section-title" style="color:var(--text-bright);">Situation Assessment</div>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Where You Stand</h3>
+        <p>You're finishing an MSc in Cyber Security (your second masters), with a dissertation on CubeSat thermal management — directly space-adjacent research. You have backend development experience (Python, Docker, AWS), founded your university's Astronomy Society, and applied to ESA Graduate Trainee positions. You're a UK citizen, making you eligible for ESA (as a member state national). For NASA, you'd need US dual-citizenship or an alternative pathway. Your current age (~22-23) means you have exceptional runway — most astronauts are selected in their mid-30s to early 40s.</p>
+      </div>
+      <div class="card">
+        <h3>The Selection Landscape</h3>
+        <p>NASA selects roughly every 4 years (last: 2024, announced Sept 2025 — 10 from 8,000+). ESA selects far less frequently — their last round was 2021-22, selecting 5 career + 12 reserve from 22,500 applicants. Before that was 2008. Average gap: ~13 years, so the next ESA round may not open until the early-to-mid 2030s. NASA's 2025 class included test pilots, engineers, a geologist, a physician, and a former SpaceX launch director. ESA's 2022 class included a helicopter test pilot, an astrophysicist, a biomedical engineer, a neuroscientist, and a paramedic/research doctor. Both agencies value breadth over narrow specialization.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- THREE PATHS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:rgba(255,170,0,0.15);border:1px solid rgba(255,170,0,0.3);">🔀</div>
+      <div class="section-title" style="color:var(--accent-amber);">The Three Paths Forward</div>
+    </div>
+    <div class="paths-grid">
+      <div class="path-card path-a">
+        <div class="path-label">Path A</div>
+        <h3>Military / Test Pilot Route</h3>
+        <p>Join the RAF (or similar), fly jets, work towards experimental test pilot school (e.g. ETPS at Boscombe Down). This is Tim Peake's route — he had 3,000+ hours and test pilot credentials when ESA selected him.</p>
+        <ul>
+          <li><span class="pro">+</span> Strongest single credential for astronaut selection</li>
+          <li><span class="pro">+</span> Builds leadership, composure under pressure, physical fitness</li>
+          <li><span class="pro">+</span> 1,000+ jet hours can substitute for STEM experience requirement</li>
+          <li><span class="con">−</span> Multi-year commitment (10-15+ years typical)</li>
+          <li><span class="con">−</span> Competitive entry to fast-jet pipeline</li>
+          <li><span class="con">−</span> Less flexibility if astronaut path doesn't work out</li>
+        </ul>
+      </div>
+      <div class="path-card path-b">
+        <div class="path-label">Path B</div>
+        <h3>Space Industry + PhD Route</h3>
+        <p>Enter the space sector (ESA, UK Space Agency, Airbus Defence & Space, etc.) while pursuing or after completing a PhD in a space-relevant field. Build 8+ years of progressively senior technical work.</p>
+        <ul>
+          <li><span class="pro">+</span> Directly builds space domain expertise and network</li>
+          <li><span class="pro">+</span> PhD strengthens application (38% of NASA non-pilot selectees have PhDs)</li>
+          <li><span class="pro">+</span> Flexible — career viable regardless of astronaut outcome</li>
+          <li><span class="pro">+</span> Can supplement with private pilot licence and flight hours</li>
+          <li><span class="con">−</span> PhD adds 3-4 years before accumulating professional experience</li>
+          <li><span class="con">−</span> Need to proactively seek extreme-environment and leadership experiences</li>
+        </ul>
+      </div>
+      <div class="path-card path-c">
+        <div class="path-label">Path C</div>
+        <h3>Hybrid: Industry → Reserve / Commercial</h3>
+        <p>Work in the space/cyber sector, build credentials, and target the ESA reserve astronaut pool or emerging commercial astronaut programmes (Axiom Space, national programmes via Axiom, etc.).</p>
+        <ul>
+          <li><span class="pro">+</span> Commercial pathways are expanding rapidly</li>
+          <li><span class="pro">+</span> ESA reserve pool is a new, lower-barrier entry point</li>
+          <li><span class="pro">+</span> UK has already agreed to buy an Axiom flight slot</li>
+          <li><span class="pro">+</span> Cyber security for space is a growing niche</li>
+          <li><span class="con">−</span> Commercial seats often require government sponsorship or funding</li>
+          <li><span class="con">−</span> Less established pathway — rules are still being written</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline-connector"></div>
+
+  <!-- PHASE 1: NOW -->
+  <div class="section phase-now">
+    <div class="section-header">
+      <div class="section-icon">🎯</div>
+      <div class="section-title">Phase 1 — Complete & Position</div>
+      <div class="section-years">2026 (NOW)</div>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-tag tag-critical">CRITICAL</div>
+        <h3>Finish the MSc Strong</h3>
+        <p>Your CubeSat thermal management dissertation is directly space-relevant. Aim for the highest possible grade — distinction matters for ESA/NASA applications. If publishable, pursue a conference paper or journal submission. A published first-author paper is a genuine differentiator.</p>
+      </div>
+      <div class="card">
+        <div class="card-tag tag-high">HIGH PRIORITY</div>
+        <h3>Start a Private Pilot Licence (PPL)</h3>
+        <p>ESA requires a Class 2 aviation medical certificate with the application. Starting your PPL now accomplishes two things: it gets you the medical, and it begins accumulating flight experience. This is relevant for all three paths. In the UK, a PPL costs roughly £8,000-12,000. Even if you go the military route later, civilian hours count. Budget for this as a long-term investment.</p>
+      </div>
+      <div class="card">
+        <div class="card-tag tag-high">HIGH PRIORITY</div>
+        <h3>Begin Learning Russian</h3>
+        <p>Both NASA and ESA require or strongly prefer Russian language skills. It's spoken alongside English on the ISS. ESA's basic training includes intensive Russian language instruction. Starting early gives you a massive advantage — NASA candidates who can't reach intermediate-low fluency during training are disqualified. Consistency matters more than intensity: 20-30 min daily via apps + a weekly tutor.</p>
+      </div>
+      <div class="card">
+        <div class="card-tag tag-medium">MEDIUM</div>
+        <h3>Get SCUBA Certified</h3>
+        <p>Spacewalk training uses neutral buoyancy (underwater simulation). PADI Open Water and Advanced Open Water certifications demonstrate comfort in the underwater environment. NASA's astronaut training requires SCUBA certification and a 75m swim in flight suit and shoes. This also opens the door to later applying for analogue missions like NEEMO.</p>
+      </div>
+      <div class="card">
+        <div class="card-tag tag-medium">MEDIUM</div>
+        <h3>Physical Fitness Baseline</h3>
+        <p>Start a structured fitness regime if you haven't already. Astronaut physicals require excellent cardiovascular health, blood pressure ≤140/90, good vision (correctable to 20/20 is fine), and overall robust health. Focus on: cardiovascular endurance (running, swimming), strength training, and flexibility. This is a lifelong commitment — start the habit now.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline-connector"></div>
+
+  <!-- PHASE 2: FOUNDATION -->
+  <div class="section phase-foundation">
+    <div class="section-header">
+      <div class="section-icon">🔧</div>
+      <div class="section-title">Phase 2 — Build the Foundation</div>
+      <div class="section-years">2026–2029</div>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-tag tag-critical">DECISION POINT</div>
+        <h3>PhD or Workforce?</h3>
+        <p>This is your biggest fork. A PhD in space cyber security, satellite systems, or spacecraft engineering would put you in a strong position (especially for ESA's science-track). But it adds 3-4 years. The alternative: go straight into the space industry and accumulate professional experience faster. Both paths work — the 2025 NASA class had a mix of PhDs and people with extensive industry experience. If you do a PhD, choose a topic directly relevant to spaceflight operations, spacecraft systems, or space security. If you go industry, target organisations like ESA (you've already applied for Graduate Trainee), UK Space Agency, Airbus Defence & Space, Surrey Satellite Technology, or equivalent.</p>
+      </div>
+      <div class="card">
+        <div class="card-tag tag-high">HIGH PRIORITY</div>
+        <h3>Target Space-Sector Employment</h3>
+        <p>Whether during or after a PhD, get into the space industry as early as possible. Key employers for your skillset include: ESA (operations, cybersecurity, engineering), UK Space Agency, Airbus Defence & Space (Stevenage), Surrey Satellite Technology Ltd (SSTL), RAL Space, Thales Alenia Space, and the growing UK NewSpace sector. Your combination of cyber security + software engineering + space knowledge is increasingly valuable as spacecraft become more connected and vulnerable.</p>
+      </div>
+      <div class="card">
+        <div class="card-tag tag-ongoing">ONGOING</div>
+        <h3>Continue Flight Training</h3>
+        <p>After PPL, consider working towards an Instrument Rating (IR) or Night Rating. Every hour logged builds your profile. If you go the military route, you'll get far more hours — but if you go civilian, you need to proactively invest in flight time. Some astronauts (like Lauren Edgar in the 2025 NASA class) came from non-pilot backgrounds, so this isn't make-or-break, but it's a significant differentiator.</p>
+      </div>
+      <div class="card">
+        <div class="card-tag tag-option">OPTIONAL — MILITARY PATH</div>
+        <h3>RAF / Military Entry</h3>
+        <p>If pursuing the military route: the RAF Direct Entry Pilot scheme accepts graduates. The fast-jet pipeline is extremely competitive but not impossible. Alternatives include the Army Air Corps (Tim Peake's route — helicopter test pilot) or RAF engineering/cyber roles that could still lead to flying opportunities. Note: you can apply to RAF while doing a PhD through the University Air Squadron or as a reservist to keep options open.</p>
+      </div>
+      <div class="card">
+        <div class="card-tag tag-medium">MEDIUM</div>
+        <h3>Publish and Present</h3>
+        <p>Whether in academia or industry, aim to publish papers or present at conferences. Target venues like the International Astronautical Congress (IAC), SpaceOps, or relevant IEEE/ACM cybersecurity conferences with space applications. ESA and NASA value candidates who can communicate complex ideas — publications demonstrate this.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline-connector"></div>
+
+  <!-- PHASE 3: BUILD -->
+  <div class="section phase-build">
+    <div class="section-header">
+      <div class="section-icon">🚀</div>
+      <div class="section-title">Phase 3 — Accumulate & Differentiate</div>
+      <div class="section-years">2029–2033</div>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-tag tag-critical">CRITICAL</div>
+        <h3>Reach 3+ Years Professional Experience</h3>
+        <p>Both NASA and ESA require a minimum of 3 years professional experience post-master's (or post-PhD). Competitive candidates typically have 8+ years. By 2033, you should have substantial, progressively responsible technical work in the space sector. Seek leadership roles — leading teams, managing projects, making high-stakes decisions.</p>
+      </div>
+      <div class="card">
+        <div class="card-tag tag-high">HIGH PRIORITY</div>
+        <h3>Pursue Analogue & Extreme Environment Missions</h3>
+        <p>These are the closest thing to astronaut training available to non-astronauts. Target programmes like:</p>
+        <ul>
+          <li>NASA CHAPEA — Mars habitat simulation at Johnson Space Center (open to non-NASA applicants)</li>
+          <li>ESA CAVES / PANGAEA — cave and geology training (typically for selected astronauts, but networking with ESA gets you on the radar)</li>
+          <li>Mars Desert Research Station (MDRS) — operated by the Mars Society, open to researchers</li>
+          <li>Antarctic research expeditions — through BAS (British Antarctic Survey)</li>
+          <li>HI-SEAS (Hawaii Space Exploration Analog) — isolation studies</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-tag tag-high">HIGH PRIORITY</div>
+        <h3>Build a Public Profile</h3>
+        <p>Astronauts are public figures and ambassadors. Start building your outreach presence: give talks at schools, universities, and space societies. Write about space cybersecurity. Engage with organisations like the UK Space Agency's education programme, STEM Ambassadors, the Royal Aeronautical Society, and the British Interplanetary Society. ESA explicitly values candidates who demonstrate communication skills and public engagement ability.</p>
+      </div>
+      <div class="card">
+        <div class="card-tag tag-ongoing">ONGOING</div>
+        <h3>Maintain & Expand Skills Portfolio</h3>
+        <p>Astronauts need to be Swiss Army knives. Beyond your core cyber/engineering expertise, actively develop breadth:</p>
+        <ul>
+          <li>Russian language → target B1/B2 level</li>
+          <li>Consider learning Mandarin (future space cooperation)</li>
+          <li>Advanced first aid / wilderness medicine certification</li>
+          <li>Outdoor leadership courses (NOLS — NASA uses this for selection)</li>
+          <li>Maintain flight currency — aim for 200+ hours</li>
+          <li>Parachute/skydiving qualification</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-tag tag-medium">MEDIUM</div>
+        <h3>Network Strategically</h3>
+        <p>Attend IAC (International Astronautical Congress) annually. Join the Association of Space Explorers events. Connect with current ESA astronauts and staff at the European Astronaut Centre (EAC) in Cologne. Apply for ESA Young Graduate Trainee or internship positions if still within age range. Many selected astronauts cite networking within the space community as crucial to understanding what selectors look for.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline-connector"></div>
+
+  <!-- PHASE 4: ADVANCE -->
+  <div class="section phase-advance">
+    <div class="section-header">
+      <div class="section-icon">⚡</div>
+      <div class="section-title">Phase 4 — Peak Competitiveness</div>
+      <div class="section-years">2033–2037</div>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-tag tag-critical">CRITICAL</div>
+        <h3>Enter the Selection Window</h3>
+        <p>By your early-to-mid 30s, you'll be in the prime selection window. ESA's max age is 50, but the ideal range is 27-37. NASA's most recent classes average mid-30s. This is when everything you've built converges. You should have: a strong STEM education (MSc minimum, ideally PhD), 5-8+ years space industry experience, flight experience, language skills, leadership credentials, physical fitness, and a compelling personal narrative.</p>
+      </div>
+      <div class="card">
+        <div class="card-tag tag-high">HIGH PRIORITY</div>
+        <h3>Apply to Everything</h3>
+        <p>Don't limit yourself to one agency. When selection windows open, apply to:</p>
+        <ul>
+          <li>ESA astronaut selection (next expected: early-to-mid 2030s)</li>
+          <li>NASA (if you've obtained dual citizenship — next expected: ~2028-2029)</li>
+          <li>CSA (Canadian Space Agency — if eligible)</li>
+          <li>Axiom Space commercial astronaut programmes</li>
+          <li>UK national astronaut opportunities via Axiom (UK has an agreed flight slot)</li>
+          <li>Any new commercial programmes that emerge</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-tag tag-high">HIGH PRIORITY</div>
+        <h3>If Not Selected: Apply Again</h3>
+        <p>Most astronauts applied multiple times. NASA's Anne McClain emphasised: "Just because you would be perfect here does not mean you will be selected." The process has an enormous element of timing and luck. Use rejection as motivation to strengthen weak areas. Each application cycle teaches you something about where you stand.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline-connector"></div>
+
+  <!-- SELECTION WINDOWS -->
+  <div class="section phase-apply">
+    <div class="section-header">
+      <div class="section-icon">🛰️</div>
+      <div class="section-title">Key Selection Windows</div>
+    </div>
+    <div class="card-grid">
+      <div class="selection-window">
+        <h4>NASA — ~2028/2029</h4>
+        <p>NASA selects roughly every 4 years. After the 2024 application cycle, the next is expected around 2028-2029. Requires US citizenship. If you pursue dual nationality, this could be your first window — though you'd only have ~2-3 years post-MSc experience at that point, which is on the low side.</p>
+      </div>
+      <div class="selection-window">
+        <h4>ESA — Early-to-Mid 2030s (Estimated)</h4>
+        <p>ESA's average gap between selections is ~13 years (2009, 2022). The next round is estimated around 2035, though it could come sooner given expanding Artemis commitments and ISS retirement. This is likely your strongest window — you'd have a PhD (if pursued) + 5-8 years experience, flight hours, and the right age. UK citizenship makes you eligible as a member state national.</p>
+      </div>
+      <div class="selection-window">
+        <h4>Commercial / National — Ongoing</h4>
+        <p>Axiom Space is flying missions roughly twice per year and expanding. The UK has agreed to fund an entire Axiom flight, likely including ESA reserve astronauts Meganne Christian and John McFall. As commercial space stations come online (Axiom Station targeted for ~2028+), new astronaut training programmes are emerging. Axiom announced its first "Project Astronaut" training programme in 2025. These pathways are less predictable but are growing.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline-connector"></div>
+
+  <!-- PHASE 5: THE APPLICATION -->
+  <div class="section phase-select">
+    <div class="section-header">
+      <div class="section-icon">🌍</div>
+      <div class="section-title">What Makes You Competitive</div>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Your Unique Angle: Space Cybersecurity</h3>
+        <p>This is genuinely differentiated. As spacecraft, space stations, and satellite constellations become more networked, cyber security becomes mission-critical. No astronaut in history has had deep cybersecurity expertise as their primary background. You could be the first. The US Space Force already has a cybersecurity division. ESA and NASA are increasingly concerned about spacecraft security. Your dissertation on CubeSat thermal management combined with your MSc in Cyber Security positions you at a unique intersection. A PhD in space systems security would make this angle even stronger.</p>
+      </div>
+      <div class="card">
+        <h3>What Selectors Look For Beyond the CV</h3>
+        <ul>
+          <li><strong>Adaptability</strong> — can you learn completely new skills quickly?</li>
+          <li><strong>Teamwork under stress</strong> — how do you handle conflict in small groups?</li>
+          <li><strong>Leadership AND followership</strong> — can you switch between both fluidly?</li>
+          <li><strong>Communication</strong> — can you explain complex ideas simply?</li>
+          <li><strong>Resilience</strong> — how do you handle failure, isolation, and monotony?</li>
+          <li><strong>Cultural sensitivity</strong> — can you work across nationalities and backgrounds?</li>
+          <li><strong>Situational awareness</strong> — can you stay calm and make decisions under pressure?</li>
+          <li><strong>Motivation</strong> — is space exploration genuinely central to who you are?</li>
+        </ul>
+        <p style="margin-top:12px;color:var(--text-dim);">These are assessed through psychological testing, group exercises, extended interviews, and reference checks. They cannot be crammed — they must be developed through years of real experience.</p>
+      </div>
+      <div class="card">
+        <h3>Immediate Action Items (Next 12 Months)</h3>
+        <ul>
+          <li>Complete MSc with distinction-level dissertation</li>
+          <li>Book a Class 2 aviation medical examination</li>
+          <li>Begin PPL training at a local flight school</li>
+          <li>Start daily Russian language study (Duolingo + italki tutor)</li>
+          <li>Get PADI Open Water SCUBA certification</li>
+          <li>Establish a consistent fitness routine (cardio + strength)</li>
+          <li>Apply to ESA Graduate Trainee / Young Professional positions</li>
+          <li>Apply to space-sector roles (SSTL, Airbus D&S, RAL Space, UK Space Agency)</li>
+          <li>Research PhD programmes in space systems / space cybersecurity</li>
+          <li>Attend the next International Astronautical Congress</li>
+          <li>Join the Royal Aeronautical Society and British Interplanetary Society</li>
+          <li>Register as a STEM Ambassador</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Generated <span>04 April 2026</span> // This is a living document — revisit and update annually</p>
+    <p style="margin-top:8px;">Ad astra per aspera ✦</p>
+  </div>
+
+</div>
+</body>
+</html>
