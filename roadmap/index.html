@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Astronaut Roadmap — Morgan O'Carroll</title>
+  <meta name="description" content="Long-range astronaut roadmap — MSc Cyber Security to spaceflight." />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body, #root { min-height: 100vh; background: #0a0e17; }
+  </style>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- Your JSX component (uses React/ReactDOM globals, no ES module imports) -->
+  <script type="text/babel" src="roadmap.jsx"></script>
+
+  <!-- Mount it -->
+  <script type="text/babel">
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<AstronautRoadmap />);
+  </script>
+</body>
+</html>

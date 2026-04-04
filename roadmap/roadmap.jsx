@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+const { useState, useEffect } = React;
 
 const STORAGE_KEY = "astro-roadmap-checks";
 
@@ -135,7 +135,7 @@ function H3({ children }) {
   return <h3 style={{ fontFamily: "'Orbitron', sans-serif", fontSize: 13, fontWeight: 600, color: "#e8f0f8", margin: "0 0 8px", letterSpacing: 0.5 }}>{children}</h3>;
 }
 
-export default function AstronautRoadmap() {
+function AstronautRoadmap() {
   const [checks, setChecks] = useState(initialChecks);
   const [loaded, setLoaded] = useState(false);
   const [activeTab, setActiveTab] = useState("roadmap");
