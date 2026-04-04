@@ -141,25 +141,22 @@ function AstronautRoadmap() {
   const [activeTab, setActiveTab] = useState("roadmap");
 
   useEffect(() => {
-    (async () => {
-      try {
-        const result = await window.storage.get(STORAGE_KEY);
-        if (result && result.value) {
-          const saved = JSON.parse(result.value);
-          setChecks((prev) => ({ ...prev, ...saved }));
-        }
-      } catch (e) {
-        console.log("No saved data yet");
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        setChecks((prev) => ({ ...prev, ...JSON.parse(saved) }));
       }
-      setLoaded(true);
-    })();
+    } catch (e) {
+      console.log("No saved data yet");
+    }
+    setLoaded(true);
   }, []);
 
-  const toggle = async (id) => {
+  const toggle = (id) => {
     const next = { ...checks, [id]: !checks[id] };
     setChecks(next);
     try {
-      await window.storage.set(STORAGE_KEY, JSON.stringify(next));
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
     } catch (e) {
       console.error("Save failed", e);
     }
