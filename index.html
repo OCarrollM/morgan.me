@@ -3,93 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morgan O'Carroll</title>
+    <title>Morgan O'Carroll :: Home</title>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%231f5d92'/><text x='50' y='74' font-size='62' font-family='Georgia,serif' font-weight='bold' fill='white' text-anchor='middle'>M</text></svg>">
 </head>
 <body>
-    <nav class="mobile-nav">
-        <button class="nav-toggle" id="navToggle">☰</button>
-        <div class="nav-menu" id="navMenu">
-            <a href="#" data-section="1">Home</a>
-            <a href="#" data-section="2">Projects</a>
-            <a href="#" data-section="3">Experience</a>
-            <a href="#" data-section="4">Skills</a>
-            <a href="#" data-section="5">Contact</a>
+
+  <div class="preheader">
+    <div class="wrap">
+      <span class="ie-badge">
+        <span class="ie-e">e</span>Best viewed in Internet Explorer
+      </span>
+        <span>Last updated: <b id="lastupd">--</b> &nbsp;&middot;&nbsp; You are visitor no. <b id="visnum">000000</b></span>
+    </div>
+  </div>
+
+  <div class="marquee">
+    <div class="marquee-in">
+      <span class="star">&#10022;</span> Welcome to morgan.me &nbsp;&nbsp;
+      <span class="star">&#10022;</span> Now building... a OS from scratch (pumps-os) &nbsp;&nbsp;
+      <span class="star">&#10022;</span> <span class="blink">NEW!</span> Website redesign &nbsp;&nbsp;
+      <span class="star">&#10022;</span> Sign my guestbook before you leave! &nbsp;&nbsp;
+      <span class="star">&#10022;</span> Open to work &mdash; drop me an e-mail! &nbsp;&nbsp;
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <header class="masthead">
+      <div class="masthead-row">
+        <div class="brandblock">
+          <div class="sitelogo">M</div>
+          <div>
+            <div class="wordmark">morgan<span class="dot">.</span><span class="spark">me</span></div>
+            <div class="tagline">~ Just your typical Computer Scientist ~</div>
+          </div>
         </div>
-    </nav>
-    <div class="gradient-bg"></div>
-    <div class="grid-overlay"></div>
-    <div class="scanlines"></div>
-
-    <div class="container">
-        <!-- Hero Terminal -->
-        <div class="terminal">
-            <div class="terminal-header">
-                <div class="terminal-dot red"></div>
-                <div class="terminal-dot yellow"></div>
-                <div class="terminal-dot green"></div>
-                <span class="terminal-title">morgan@portfolio:~</span>
-            </div>
-            <div class="terminal-body">
-                <span class="prompt">❯ </span><span class="command">neofetch</span>
-                
-                <div class="neofetch-container">
-                    <pre class="ascii-art">
-                    
- ███╗   ███╗ ██████╗ ██████╗  ██████╗  █████╗ ███╗   ██╗
- ████╗ ████║██╔═══██╗██╔══██╗██╔════╝ ██╔══██╗████╗  ██║
- ██╔████╔██║██║   ██║██████╔╝██║  ███╗███████║██╔██╗ ██║
- ██║╚██╔╝██║██║   ██║██╔══██╗██║   ██║██╔══██║██║╚██╗██║
- ██║ ╚═╝ ██║╚██████╔╝██║  ██║╚██████╔╝██║  ██║██║ ╚████║
- ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝
-                     O'CARROLL
-                    </pre>
-                    <div class="neofetch-info">
-                        <div class="neofetch-line"><span class="nf-label">morgan</span><span class="nf-at">@</span><span class="nf-host">portfolio</span></div>
-                        <div class="neofetch-divider">──────────────────</div>
-                        <div class="neofetch-line"><span class="nf-key">OS:</span> Human</div>
-                        <div class="neofetch-line"><span class="nf-key">Host:</span> Plymouth, UK</div>
-                        <div class="neofetch-line"><span class="nf-key">Uptime:</span> <span id="age"></span> years</div>
-                        <div class="neofetch-line"><span class="nf-key">Shell:</span> creativity</div>
-                        <div class="neofetch-line"><span class="nf-key">Languages:</span> C, Python, Java</div>
-                        <div class="neofetch-line"><span class="nf-key">Interests:</span> Space, Systems, AWS</div>
-                        <div class="neofetch-line"><span class="nf-ket">Visitors:</span> <span id="visitor-count">-</span> online</div>
-                        <div class="neofetch-colors">
-                            <span class="nf-color c1"></span>
-                            <span class="nf-color c2"></span>
-                            <span class="nf-color c3"></span>
-                            <span class="nf-color c4"></span>
-                            <span class="nf-color c5"></span>
-                            <span class="nf-color c6"></span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="hero-content">
-                    <span class="prompt">❯ </span><span class="command">cat about.txt</span>
-                    <div class="output">Architect of the digital unknown. Interested in AWS, space, and code that runs hardware.</div>
-
-                    <div class="status">
-                        <div class="status-dot"></div>
-                        <span class="status-text">Open to work</span>
-                    </div>
-                </div>
-                <div class="theme-switcher">
-                    <span class="prompt">❯ </span><span class="command-static">theme</span>
-                    <div class="theme-options">
-                        <button class="theme-btn active" data-theme="purple" title="Purple Neon"></button>
-                        <button class="theme-btn" data-theme="green" title="Matrix Green"></button>
-                        <button class="theme-btn" data-theme="blue" title="Ice Blue"></button>
-                        <button class="theme-btn" data-theme="orange" title="Solar Flare"></button>
-                        <button class="matrix-toggle" id="matrixToggle" title="Toggle Matrix Rain">
-                            <span>▣</span> Matrix
-                        </button>
-                    </div>
-                </div>
-            </div>
+        <div class="flagcount">
+          <div>&#9788; Lancaster, United Kingdom</div>
+          <div>Webmaster: <a href="mailto:morganocarroll01@gmail.com">Morgan</a></div>
         </div>
+      </div>
+
+      <nav class="nav">
+        <a class="home" href="#top">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#guestbook">Guestbook</a>
+        <span class="navspace"></span>
+        <a class="lastnav" href="mailto:morganocarroll01@gmail.com">E-mail Me</a>
+      </nav>
+    </header>
+
+    <!-- Hero Terminal -->
+    <section class="panel" id="top">  
+      <div class="panel-head"><span>&#9658; Welcome to my homepage!</span><span class="more">est. 2001</span></div>
+      <div class="panel-body">
+        <div class="hero">
+          <div class="pfp-frame">
+            <div class="pfp-new">NEW PIC!</div>
+            <image-slot id="ie6-pfp" shape="rect" placeholder="Probably me" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='168'%20height='168'%3E%3Cdefs%3E%3ClinearGradient%20id='g'%20x1='0'%20y1='0'%20x2='1'%20y2='1'%3E%3Cstop%20offset='0'%20stop-color='%2379bbe8'/%3E%3Cstop%20offset='1'%20stop-color='%231f5d92'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width='168'%20height='168'%20fill='url(%23g)'/%3E%3Ctext%20x='84'%20y='104'%20font-size='66'%20font-family='Georgia,serif'%20font-weight='bold'%20fill='white'%20text-anchor='middle'%3EMO%3C/text%3E%3Ctext%20x='84'%20y='138'%20font-size='13'%20font-family='Verdana,sans-serif'%20fill='%23cfe6f6'%20text-anchor='middle'%3E(drop%20a%20photo)%3C/text%3E%3C/svg%3E"></image-slot>
+          </div>
+          <div class="hero-body">
+            <h1 class="hero-name">Morgan</h1>
+            <div class="hero-sub">Computer Scientist &amp; Space Nerd &nbsp;&middot;&nbsp; <b>MSc Cyber Security</b></div>
+            <p class="hero-tag">Hi! I'm Morgan &mdash; I like space, systems and hardware. Welcome to my page, please take a seat.</p>
+            <div class="hero-cta">
+              <span class="status"><span class="led"></span> Open to work!</span>
+              <a class="btn btn-blue" href="#projects">&#9635; See My Projects</a>
+              <a class="btn btn-green" href="#" download>&#8595; Download CV</a>
+              <a class="btn" href="mailto:morganocarroll01@gmail.com"><span class="email-anim">&#9993;</span> E-mail Me</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="construction">
+          <span class="barber"></span>
+          <span class="construction-txt"><b>UNDER CONSTRUCTION</b>&mdash; pumps-os is still being built. Check back soon for screenshots! &#9888;</span>
+          <span class="barber"></span>
+        </div>
+      </div>
+    </section>
+
+    <div class="cols">
+      <main>
+        
+      </main>
 
         <!-- Projects Terminal -->
         <div class="terminal">
