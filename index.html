@@ -89,176 +89,138 @@
 
     <div class="cols">
       <main>
-        
-      </main>
+        <section class="panel" id="projects">
+          <div class="panel-head"><span>&#9733; My Projects</span><a class="more" href="#projects">view all &raquo;</a></div>
+          <div class="panel-body">
+            <article class="proj">
+              <div class="proj-ico ic-c">PPM Viewer</div>
+              <div class="proj-main">
+                <div class="proj-name"><a href="https://github.com/OCarrollM/cImageViewer" target="_blank">ppm-image-viewer</a></div>
+                <div class="proj-desc">A binary PPM parser and renderer. Reads pixel data byte-by-byte and displays via SDL2.</div>
+                <div class="chips"><span class="chip">C</span><span class="chip">SDL2</span><span class="chip">Binary I/O</span></div>
+              </div>
+            </article>
 
-        <!-- Projects Terminal -->
-        <div class="terminal">
-            <div class="terminal-header">
-                <div class="terminal-dot red"></div>
-                <div class="terminal-dot yellow"></div>
-                <div class="terminal-dot green"></div>
-                <span class="terminal-title">projects.sh</span>
-            </div>
-            <div class="terminal-body">
-                <span class="prompt">❯ </span><span class="command">ls ~/projects --verbose</span>
-                <div class="output">
-                    <div class="project-item">
-                        <div class="project-name"><a href="https://github.com/OCarrollM/cImageViewer" target="_blank">ppm-image-viewer</a></div>
-                        <div class="project-desc">Binary PPM parser and renderer. Reads pixel data byte-by-byte and displays via SDL2.</div>
-                        <div class="project-tech">
-                            <span class="tech-tag">C</span>
-                            <span class="tech-tag">SDL2</span>
-                            <span class="tech-tag">Binary I/O</span>
-                        </div>
-                    </div>
+            <article class="proj">
+              <div class="proj-ico ic-c">Pumps OS</div>
+              <div class="proj-main">
+                <div class="proj-name"><a href="https://github.com/OCarrollM/pumpsOS" target="_blank">pumps-os</a><span class="tag-hot">IN PROGRESS</span></div>
+                <div class="proj-desc">Operating system from scratch</div>
+                <div class="chips"><span class="chip">Assembly</span><span class="chip">C</span></div>
+              </div>
+            </article>
 
-                    <div class="project-item">
-                        <div class="project-name"><a href="https://github.com/OCarrollM/pumpsOS" target="_blank">pumps-os (Currently working on...)</a></div>
-                        <div class="project-desc">Operating system from scratch. VGA text mode, terminal scrolling, kernel fundamentals.</div>
-                        <div class="project-tech">
-                            <span class="tech-tag">Assembly</span>
-                            <span class="tech-tag">C</span>
-                            <span class="tech-tag">QEMU</span>
-                        </div>
-                    </div>
+            <article class="proj">
+              <div class="proj-ico ic-qdk">QDK Dev</div>
+              <div class="proj-main">
+                <div class="proj-name"><a href="https://github.com/OCarrollM/QDK" target="_blank">Quantum Dev Kit</a><span class="tag-hot">IN PROGRESS</span></div>
+                <div class="chips"><span class="chip">Q#</span></div>
+              </div>
+            </article>
 
-                    <div class="project-item">
-                        <div class="project-name"><a href="https://github.com/OCarrollM/aws-gym-tracker" target="_blank">hyper-track</a></div>
-                        <div class="project-desc">AWS backed gym tracker, cloud architecture, backend fundamentals.</div>
-                        <div class="project-tech">
-                            <span class="tech-tag">AWS</span>
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Cloud Systems</span>
-                        </div>
-                    </div>
+          </div>
+        </section>
 
-                    <div class="project-item">
-                        <div class="project-name"><a href="https://github.com/OCarrollM/morgan.me" target="_blank">This website!</a></div>
-                        <div class="project-desc">This website is a personal project fully containerised and deployed using Docker and Kubernetes (k3s)</div>
-                        <div class="project-tech">
-                            <span class="tech-tag">Docker</span>
-                            <span class="tech-tag">Kubernetes</span>
-                        </div>
-                    </div>
-
-                    <a href="projects/" class="view-all-link">View Projects →</a>
-                </div>
-            </div>
-        </div>
+        <!-- About -->
+        <section class="panel" id="About">
+          <div class="panel-head"><span>&#9786; About Me</span></div>
+          <div class="panel-body">
+            <p class="about-intro">I am a Computer Scientist and Space nerd from Plymouth, currently in Lancaster University studying Cyber Security and previously completing a degree in Computer Science. Hopefully gearing up for a PhD in the School of Computing and Commincations (stay tuned!).</p>
+          </div>
+        </section>
 
         <!-- Experience -->
-        <div class="terminal">
-            <div class="terminal-header">
-                <div class="terminal-dot red"></div>
-                <div class="terminal-dot yellow"></div>
-                <div class="terminal-dot green"></div>
-                <span class="terminal-title">experience.log</span>
-            </div>
-            <div class="terminal-body">
-                <span class="prompt">❯ </span><span class="command">cat ~/.experience.log</span>
-                <div class="output">
-                    <div class="exp-item">
-                        <div class="exp-header">
-                            <span class="exp-role">Part Time Backend API Developer</span>
-                            <span class="exp-date">Oct 2025 - Present</span>
-                        </div>
-                        <div class="exp-company">@ ISS Lancaster University</div>
-                        <div class="exp-desc">Working on the backend systems of various projects, using Python, next.js, AWS</div>
-                    </div>
+        <section class="panel" id="experience">
+          <div class="panel-head"><span>&#9632; Experience &amp; Education</span></div>
+          
+          <div class="exp">
+            <div class="exp-top"><span class="exp-role">Part Time Software Engineer</span><span class="exp-date">Oct 2025 &ndash; Present</span></div>
+            <div class="exp-org">@ ISS, Lancaster University</div>
+            <div class="exp-desc">Working on production ready projects for both clients and the internal university using Typescript, Python, AWS and more (stay tuned!)</div>
+          </div>
 
-                    <div class="exp-item">
-                        <div class="exp-header">
-                            <span class="exp-role">MSc Cyber Security</span>
-                            <span class="exp-date">2025 - Present</span>
-                        </div>
-                        <div class="exp-company">@ Lancaster University</div>
-                        <div class="exp-desc">Penetration Testing, Digital Forensics, Network Security, Cybercrime</div>
-                    </div>
+          <div class="exp">
+            <div class="exp-top"><span class="exp-role">Student Ambassador</span><span class="exp-date">Oct 2022 &ndash; Present</span></div>
+            <div class="exp-org">@ Lancaster University</div>
+            <div class="exp-desc">Work closely with the department to deliver exciting events for prospective students</div>
+          </div>
 
-                    <div class="exp-item">
-                        <div class="exp-header">
-                            <span class="exp-role">MSci Computer Science</span>
-                            <span class="exp-date">2021 - 2025</span>
-                        </div>
-                        <div class="exp-company">@ Lancaster University</div>
-                        <div class="exp-desc">Data Structures, Operating Systems, Advanced Programming, Student Rep, Student Ambassador, Astronomy Society, Ballroom Dance Sport</div>
-                    </div>
-                </div>
-            </div>
+          <div class="exp">
+            <div class="exp-top"><span class="exp-role">MSc Cyber Security</span><span class="exp-date">Oct 2025 &ndash; Present</span></div>
+            <div class="exp-org">@ Lancaster University</div>
+            <div class="exp-desc">Currently studying! Pen testing, Forensics, Law, Networks, Cyber Crime</div>
+          </div>
+
+          <div class="exp">
+            <div class="exp-top"><span class="exp-role">MSci Computer Science</span><span class="exp-date">2021 &ndash; 2025</span></div>
+            <div class="exp-org">@ Lancaster University</div>
+            <div class="exp-desc">Previous Degree: Computing fundamentals, theory, industry experience (More to come soon)</div>
+          </div>
+        </section>
+
+      </main>
+
+      <!-- Side bar -->
+      <aside class="side">
+
+        <!-- Maybe add a spotify now playing feature with the API? -->
+
+        <!-- Skills (might update how this looks) -->
+         <div class="panel">
+          <div class="panel-head" style="font-size:13px;"><span>&#9636; My Skills</span></div>
+          <div class="panel-body">
+            <div class="skill"><div class="skill-top"><span>Python</span><span>90%</span></div><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+            <div class="skill"><div class="skill-top"><span>C / Assembly</span><span>82%</span></div><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div>
+            <div class="skill"><div class="skill-top"><span>Docker / k8s</span><span>78%</span></div><div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div></div>
+            <div class="skill"><div class="skill-top"><span>Linux / Git</span><span>85%</span></div><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+            <div class="skill"><div class="skill-top"><span>Q#</span><span>20%</span></div><div class="skill-bar"><div class="skill-fill" style="width:20%"></div></div></div>
+          </div>
         </div>
 
-        <!-- Skills Terminal -->
-        <div class="terminal">
-            <div class="terminal-header">
-                <div class="terminal-dot red"></div>
-                <div class="terminal-dot yellow"></div>
-                <div class="terminal-dot green"></div>
-                <span class="terminal-title">skills --visualize</span>
-            </div>
-            <div class="terminal-body">
-                <span class="prompt">❯ </span><span class="command">cat ~/.skills</span>
-                <div class="output">
-                    <div class="skill-group">
-                        <span class="skill-label">languages</span>
-                        <div class="skill-tags">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">C</span>
-                            <span class="tech-tag">Java</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Assembly</span>
-                        </div>
-                    </div>
-
-                    <div class="skill-group">
-                        <span class="skill-label">tools</span>
-                        <div class="skill-tags">
-                            <span class="tech-tag">Git</span>
-                            <span class="tech-tag">Linux</span>
-                            <span class="tech-tag">AWS</span>
-                            <span class="tech-tag">Docker</span>
-                            <span class="tech-tag">SDL2</span>
-                        </div>
-                    </div>
-
-                    <div class="skill-group">
-                        <span class="skill-label">interests</span>
-                        <div class="skill-tags">
-                            <span class="tech-tag">Systems Engineering</span>
-                            <span class="tech-tag">Cloud Architecture</span>
-                            <span class="tech-tag">OS Development</span>
-                            <span class="tech-tag">AWS Architectures</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="panel">
+        <div class="panel-head" style="font-size:13px;"><span>&#9201; Visitor Count</span></div>
+        <div class="panel-body">
+          <div class="counter" id="counter"><span class="d">0</span><span class="d">0</span><span class="d">0</span><span class="d">0</span><span class="d">0</span><span class="d">0</span></div>
+          <div class="counter-note">Thanks for visiting! <b id="online">3</b> people online now.</div>
         </div>
+      </div>
 
-        <!-- Contact Terminal -->
-        <div class="terminal">
-            <div class="terminal-header">
-                <div class="terminal-dot red"></div>
-                <div class="terminal-dot yellow"></div>
-                <div class="terminal-dot green"></div>
-                <span class="terminal-title">contact.sh</span>
-            </div>
-            <div class="terminal-body">
-                <span class="prompt">❯ </span><span class="command">cat ~/.socials</span>
-                <div class="output">
-                    <div class="link-grid">
-                        <a href="https://github.com/OCarrollM" class="link-btn" target="_blank"><span>⌘</span> GitHub</a>
-                        <a href="https://www.linkedin.com/in/morganocarroll/" class="link-btn" target="_blank"><span>◉</span> LinkedIn</a>
-                        <a href="mailto:morganocarroll01@gmail.com" class="link-btn"><span>✉</span> Email</a>
-                        <a href="#" download class="link-btn"><span>↓</span> CV</a>
-                    </div>
-                </div>
-                <div class="terminal-input">
-                    <span class="prompt">❯ </span><span class="cursor"></span>
-                </div>
-            </div>
+      <div class="panel">
+        <div class="panel-head" style="font-size:13px;"><span>&#9888; Awards &amp; Badges</span></div>
+        <div class="panel-body">
+          <div class="awards">
+            <a class="b88 b88-ie" href="#"><span><span class="big">e</span> Best in IE6</span></a>
+            <a class="b88 b88-css" href="#"><span><span class="big">CSS</span> valid!</span></a>
+            <a class="b88 b88-htm" href="#"><span>valid<br>XHTML 1.0</span></a>
+            <a class="b88 b88-net" href="#"><span>made on a<br>56k modem</span></a>
+            <a class="b88 b88-rss" href="#"><span>&#9730; RSS<br>feed</span></a>
+            <a class="b88 b88-not" href="#"><span>made in<br>NOTEPAD</span></a>
+          </div>
         </div>
+      </div>
+      </aside>
     </div>
 
-    <script src="js/main.js"></script>
+    <hr class="rainbow">
+
+    <footer class="footer">
+      <hr class="rainbow">
+      <div class="footer-badges">
+        <a class="b88 b88-ie" href="#"><span><span class="big">e</span> get<br>Explorer</span></a>
+        <a class="b88 b88-htm" href="#"><span>powered by<br>k3s + Docker</span></a>
+        <a class="b88 b88-net" href="#"><span>made with<br>&#9829; and tea</span></a>
+      </div>
+      <div class="hitline">
+        <span>This page has been hit</span>
+        <span class="mono" id="hits" style="background:#0d1409;color:#b6ff7a;border:1px solid #324a22;padding:2px 6px;">000000</span>
+        <span>times since Aug 2002.</span>
+      </div>
+      <div>&copy; <span id="year">2002</span> Morgan O'Carroll &middot; Plymouth, UK &middot; Hand-coded with care &middot; <span class="email-anim">&#9993;</span> <a href="mailto:morganocarroll01@gmail.com">e-mail the webmaster</a></div>
+      <div class="mono" style="margin-top:5px;color:#8a97a4;">&lt;!-- Best viewed in IE6 at 1024&times;768. Netscape users: good luck. --&gt;</div>
+    </footer>
+  </div>
+
+  <script src="js/image-slot.js"></script>
+  <script src="js/ie6.js"></script>
 </body>
 </html>
