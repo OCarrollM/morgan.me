@@ -96,12 +96,12 @@
 
 /* ---------- UNDER CONSTRUCTION (compact, on feature) ---------- */
 .construction {
-  display: flex; align-items: center; gap: 10px;
+  display: flex; align-items: center; gap: 10px; justify-content: center;
   background: #fffdf2; border-top: 1px solid var(--rule);
   padding: 6px 10px; font-size: 10.5px; color: #7a5a10;
 }
 .barber {
-  flex: 0 0 auto; width: 48px; height: 16px;
+  flex: 0 0 auto; width: 148px; height: 16px;
   background: repeating-linear-gradient(45deg, #f5c518 0 10px, #1a1a1a 10px 20px);
   background-size: 28px 28px; border: 1px solid #1a1a1a;
   animation: barber .6s linear infinite;
