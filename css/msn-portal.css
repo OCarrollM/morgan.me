@@ -48,7 +48,7 @@ h1, h2, h3 { margin: 0; }
 
 /* ===================== OUTER PORTAL SHELL ===================== */
 .portal {
-  width: 960px; max-width: 96vw; margin: 0 auto;
+  width: 90%; max-width: 96vw; margin: 0 auto;
   background: var(--frame);
   border-left: 1px solid #0f2f5e; border-right: 1px solid #0f2f5e;
 }
@@ -58,7 +58,7 @@ h1, h2, h3 { margin: 0; }
   background: var(--frame-top);
   color: #b9cce4; font-size: 10px;
   padding: 4px 12px;
-  display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  display: flex; align-items: right; justify-content: right; gap: 12px; flex-wrap: wrap;
 }
 .topbar .colors a { color: #cfe0f5; }
 .topbar .colors a.on { color: #7ec64a; font-weight: bold; }
@@ -297,7 +297,7 @@ h1, h2, h3 { margin: 0; }
 /* ===================== MARQUEE ===================== */
 .marquee { background: linear-gradient(to bottom, #fffbe6, #fff2bf); border-top: 1px solid #d9c86a; border-bottom: 1px solid #d9c86a; overflow: hidden; white-space: nowrap; }
 .marquee-in { display: inline-block; padding: 5px 0; padding-left: 100%; font-size: 11px; font-weight: bold; color: #7a5a10; animation: scrollx 24s linear infinite; }
-.marquee:hover .marquee-in { animation-play-state: paused; }
+.marquee:hover .marquee-in { animation-play-state: running; }
 .marquee .star { color: var(--orange); }
 .marquee .blink { animation: blink 1s steps(2,start) infinite; }
 
