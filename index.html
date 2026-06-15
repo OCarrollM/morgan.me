@@ -1,234 +1,336 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morgan O'Carroll :: Home</title>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%231f5d92'/><text x='50' y='74' font-size='62' font-family='Georgia,serif' font-weight='bold' fill='white' text-anchor='middle'>M</text></svg>">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>morgan.me :: Home</title>
+<link rel="stylesheet" href="css/msn-portal.css">
+<link rel="stylesheet" href="css/msn-combined.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%231f5096'/><text x='50' y='74' font-size='58' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>m</text></svg>">
 </head>
 <body>
 
-  <div class="preheader">
-    <div class="wrap">
-      <span class="ie-badge">
-        <span class="ie-e">e</span>Best viewed in Internet Explorer
-      </span>
-        <span>Last updated: <b id="lastupd">--</b> &nbsp;&middot;&nbsp; You are visitor no. <b id="visnum">000000</b></span>
-    </div>
+<div class="portal" data-screen-label="Combined Home">
+
+  <!-- ===================== TOP UTILITY STRIP ===================== -->
+  <div class="topbar">
+    <span class="colors">Change colors: <a href="#" class="off">Simple White</a> &nbsp; <a href="#" class="on">Classic Blue</a></span>
+    <span class="right">
+      <span class="msgr">Connect &amp; share instantly &mdash; say hi on LinkedIn</span>
+      <a href="#">RSS</a>
+      <a href="#">Sitemap</a>
+    </span>
   </div>
 
-  <div class="marquee">
-    <div class="marquee-in">
-      <span class="star">&#10022;</span> Welcome to morgan.me &nbsp;&nbsp;
-      <span class="star">&#10022;</span> Now building... a OS from scratch (pumps-os) &nbsp;&nbsp;
-      <span class="star">&#10022;</span> <span class="blink">NEW!</span> Website redesign &nbsp;&nbsp;
-      <span class="star">&#10022;</span> Sign my guestbook before you leave! &nbsp;&nbsp;
-      <span class="star">&#10022;</span> Open to work &mdash; drop me an e-mail! &nbsp;&nbsp;
-    </div>
-  </div>
+  <!-- ===================== MASTHEAD ===================== -->
+  <header class="masthead">
+    <div class="masthead-grid">
+      <div class="logo">morgan<span class="dot">.</span>me<span class="fly"></span></div>
 
-  <div class="wrap">
-
-    <header class="masthead">
-      <div class="masthead-row">
-        <div class="brandblock">
-          <div class="sitelogo">M</div>
-          <div>
-            <div class="wordmark">morgan<span class="dot">.</span><span class="spark">me</span></div>
-            <div class="tagline">~ Just your typical Computer Scientist ~</div>
-          </div>
-        </div>
-        <div class="flagcount">
-          <div>&#9788; Lancaster, United Kingdom</div>
-          <div>Webmaster: <a href="mailto:morganocarroll01@gmail.com">Morgan</a></div>
-        </div>
+      <div class="cat-row">
+        <span class="cat-label">Select a page:</span>
+        <span class="cats">
+          <a class="on" href="#top">Home</a>
+          <a href="#projects">Projects</a>
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#guestbook">Guestbook</a>
+        </span>
       </div>
 
-      <nav class="nav">
-        <a class="home" href="#top">Home</a>
-        <a href="#projects">Projects</a>
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#guestbook">Guestbook</a>
-        <span class="navspace"></span>
-        <a class="lastnav" href="mailto:morganocarroll01@gmail.com">E-mail Me</a>
-      </nav>
-    </header>
+      <div class="search-row">
+        <span class="search-label">Search this site:</span>
+        <form onsubmit="return false;">
+          <input type="text" placeholder="e.g. operating systems, AWS, C..." aria-label="search">
+          <button type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </header>
 
-    <!-- Hero Terminal -->
-    <section class="panel" id="top">  
-      <div class="panel-head"><span>&#9658; Welcome to my homepage!</span><span class="more">est. 2001</span></div>
-      <div class="panel-body">
-        <div class="hero">
-          <div class="pfp-frame">
-            <div class="pfp-new">NEW PIC!</div>
-            <image-slot id="ie6-pfp" shape="rect" placeholder="Probably me" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='168'%20height='168'%3E%3Cdefs%3E%3ClinearGradient%20id='g'%20x1='0'%20y1='0'%20x2='1'%20y2='1'%3E%3Cstop%20offset='0'%20stop-color='%2379bbe8'/%3E%3Cstop%20offset='1'%20stop-color='%231f5d92'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width='168'%20height='168'%20fill='url(%23g)'/%3E%3Ctext%20x='84'%20y='104'%20font-size='66'%20font-family='Georgia,serif'%20font-weight='bold'%20fill='white'%20text-anchor='middle'%3EMO%3C/text%3E%3Ctext%20x='84'%20y='138'%20font-size='13'%20font-family='Verdana,sans-serif'%20fill='%23cfe6f6'%20text-anchor='middle'%3E(drop%20a%20photo)%3C/text%3E%3C/svg%3E"></image-slot>
+  <!-- ===================== MARQUEE ===================== -->
+  <div class="marquee">
+    <div class="marquee-in">
+      <span class="star">&#10022;</span> Welcome to morgan.me &mdash; my corner of the web! &nbsp;&nbsp;
+      <span class="star">&#10022;</span> <span class="blink">NEW!</span> hyper-track is live on AWS &nbsp;&nbsp;
+      <span class="star">&#10022;</span> Now building pumps-os, a kernel from scratch &nbsp;&nbsp;
+      <span class="star">&#10022;</span> Sign my guestbook before you go! &nbsp;&nbsp;
+      <span class="star">&#10022;</span> Open to work &mdash; let's talk &nbsp;&nbsp;
+    </div>
+  </div>
+
+  <!-- ===================== CONTENT ===================== -->
+  <div class="content" id="top">
+    <div class="cols">
+
+      <!-- ---------- LEFT SIDEBAR ---------- -->
+      <nav class="col-left">
+
+        <!-- profile card (from IE6 edition) -->
+        <div class="profile-card">
+          <div class="profile-frame">
+            <span class="profile-new">NEW PIC!</span>
+            <image-slot id="combined-pfp" shape="rect" placeholder="Drop your photo"></image-slot>
           </div>
-          <div class="hero-body">
-            <h1 class="hero-name">Morgan</h1>
-            <div class="hero-sub">Computer Scientist &amp; Space Nerd &nbsp;&middot;&nbsp; <b>MSc Cyber Security</b></div>
-            <p class="hero-tag">Hi! I'm Morgan &mdash; I like space, systems and hardware. Welcome to my page, please take a seat.</p>
-            <div class="hero-cta">
-              <span class="status"><span class="led"></span> Open to work!</span>
-              <a class="btn btn-blue" href="#projects">&#9635; See My Projects</a>
-              <a class="btn btn-green" href="#" download>&#8595; Download CV</a>
-              <a class="btn" href="mailto:morganocarroll01@gmail.com"><span class="email-anim">&#9993;</span> E-mail Me</a>
+          <div class="profile-name">Morgan O'Carroll</div>
+          <div class="profile-role">Computer Scientist &amp; Systems Tinkerer</div>
+          <div class="profile-status"><span class="led"></span> Open to work!</div>
+        </div>
+
+        <div class="navgroup">
+          <h3>Projects</h3>
+          <ul class="navlist">
+            <li><a href="https://github.com/OCarrollM/cImageViewer" target="_blank">ppm-image-viewer</a></li>
+            <li><a href="https://github.com/OCarrollM/pumpsOS" target="_blank">pumps-os</a></li>
+            <li><a href="https://github.com/OCarrollM/aws-gym-tracker" target="_blank">hyper-track</a><span class="tag-new">NEW</span></li>
+            <li><a href="https://github.com/OCarrollM/morgan.me" target="_blank">this website</a></li>
+            <li><a href="https://github.com/OCarrollM" target="_blank">all repos &raquo;</a></li>
+          </ul>
+        </div>
+
+        <div class="navgroup">
+          <h3>Look Me Up</h3>
+          <ul class="navlist">
+            <li><a href="https://github.com/OCarrollM" target="_blank">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/morganocarroll/" target="_blank">LinkedIn</a></li>
+            <li><a href="mailto:morganocarroll01@gmail.com">E-mail</a></li>
+            <li><a href="#" download>Curriculum Vitae</a></li>
+            <li><a href="#about">About this site</a></li>
+          </ul>
+        </div>
+
+        <div class="navgroup">
+          <h3>Off the Clock</h3>
+          <ul class="navlist">
+            <li><a href="#">Spaceflight</a></li>
+            <li><a href="#">Astronomy Soc.</a></li>
+            <li><a href="#">Ballroom &amp; Dance</a></li>
+            <li><a href="#">Home Server Lab</a></li>
+            <li><a href="#">Now Reading</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-note">
+          <b>&#9788; Plymouth, UK</b><br>
+          Hand-coded &amp; running on my own k3s cluster.
+        </div>
+      </nav>
+
+      <!-- ---------- CENTER COLUMN ---------- -->
+      <main class="col-mid">
+        <div class="datebar" id="datebar">Loading the date...</div>
+
+        <!-- Feature card with under-construction note -->
+        <section class="feature" id="projects">
+          <div class="feature-head">&#9733; Featured Project</div>
+          <div class="feature-body">
+            <div class="feature-art">
+              <image-slot id="msn-feature" shape="rect" placeholder="Drop a pumps-os screenshot"></image-slot>
+            </div>
+            <div class="feature-main">
+              <div class="feature-title"><a href="https://github.com/OCarrollM/pumpsOS" target="_blank">pumps-os: an OS from scratch</a></div>
+              <div class="feature-sub">Building a kernel one interrupt at a time &mdash; currently in progress.</div>
+              <ul class="feature-list">
+                <li>VGA text mode &amp; a scrolling terminal</li>
+                <li>Written in Assembly &amp; C, booted in QEMU</li>
+                <li>The fundamentals of a real kernel, by hand</li>
+              </ul>
+            </div>
+          </div>
+          <div class="construction">
+            <span class="barber"></span>
+            <span><b>UNDER CONSTRUCTION!</b> &mdash; screenshots coming soon. Check back! &#9888;</span>
+            <span class="barber"></span>
+          </div>
+        </section>
+
+        <!-- Projects as rich cards (from IE6 edition) -->
+        <section class="newsblock">
+          <h2>MY PROJECTS</h2>
+          <div class="pcards">
+            <article class="pcard">
+              <div class="pcard-ico ic-aws">AWS</div>
+              <div class="pcard-main">
+                <div class="pcard-name"><a href="https://github.com/OCarrollM/aws-gym-tracker" target="_blank">hyper-track</a><span class="tag-new blink">NEW!</span></div>
+                <div class="pcard-desc">An AWS-backed gym tracker &mdash; a practical dive into cloud architecture and backend fundamentals.</div>
+                <div class="pcard-chips"><span class="pchip">AWS</span><span class="pchip">Python</span><span class="pchip">Cloud</span></div>
+              </div>
+            </article>
+            <article class="pcard">
+              <div class="pcard-ico ic-c">PPM</div>
+              <div class="pcard-main">
+                <div class="pcard-name"><a href="https://github.com/OCarrollM/cImageViewer" target="_blank">ppm-image-viewer</a></div>
+                <div class="pcard-desc">A binary PPM parser and renderer in C &mdash; reads pixel data byte-by-byte and paints it with SDL2.</div>
+                <div class="pcard-chips"><span class="pchip">C</span><span class="pchip">SDL2</span><span class="pchip">Binary I/O</span></div>
+              </div>
+            </article>
+            <article class="pcard">
+              <div class="pcard-ico ic-os">OS</div>
+              <div class="pcard-main">
+                <div class="pcard-name"><a href="https://github.com/OCarrollM/pumpsOS" target="_blank">pumps-os</a><span class="tag-hot">IN PROGRESS</span></div>
+                <div class="pcard-desc">An operating system written from scratch &mdash; VGA text mode, a scrolling terminal, and kernel fundamentals.</div>
+                <div class="pcard-chips"><span class="pchip">Assembly</span><span class="pchip">C</span><span class="pchip">QEMU</span></div>
+              </div>
+            </article>
+            <article class="pcard">
+              <div class="pcard-ico ic-k8">K8s</div>
+              <div class="pcard-main">
+                <div class="pcard-name"><a href="https://github.com/OCarrollM/morgan.me" target="_blank">this website</a></div>
+                <div class="pcard-desc">The page you're reading &mdash; containerised and deployed with Docker and Kubernetes (k3s) on my own cluster.</div>
+                <div class="pcard-chips"><span class="pchip">Docker</span><span class="pchip">Kubernetes</span></div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Experience as a headline block -->
+        <section class="newsblock" id="experience">
+          <h2>EXPERIENCE &amp; EDUCATION</h2>
+          <ul class="newslist">
+            <li><a href="#">Part-Time Backend API Developer &mdash; ISS, Lancaster University</a><span class="when">Oct 2025 &ndash; now</span></li>
+            <li><a href="#">MSc Cyber Security &mdash; Lancaster University</a><span class="when">2025 &ndash; now</span></li>
+            <li><a href="#">MSci Computer Science &mdash; Lancaster University</a><span class="when">2021 &ndash; 2025</span></li>
+          </ul>
+        </section>
+
+        <!-- About blurb -->
+        <section class="aboutblurb" id="about">
+          <h2>About Me</h2>
+          I'm a computer scientist from Plymouth, up in Lancaster for an MSc in Cyber Security after my MSci in Computer Science. I like operating systems, the cloud, and outer space &mdash; and writing code that talks straight to the hardware. When I'm away from the keyboard you'll find me reading about spaceflight, tinkering with my home server, or out ballroom dancing.
+        </section>
+      </main>
+
+      <!-- ---------- RIGHT COLUMN ---------- -->
+      <aside class="col-right">
+
+        <!-- sign-in style buttons -->
+        <div class="signins">
+          <a class="signin" href="https://github.com/OCarrollM" target="_blank">GitHub</a>
+          <a class="signin" href="https://www.linkedin.com/in/morganocarroll/" target="_blank">LinkedIn</a>
+          <a class="signin" href="mailto:morganocarroll01@gmail.com">E-mail</a>
+          <a class="signin" href="#" download>CV</a>
+        </div>
+        <div class="adfeedback">Webmaster's picks &middot; <a href="#">feedback</a></div>
+
+        <!-- STATS module (MONEY style) -->
+        <div class="module">
+          <div class="module-head"><span>Stats</span><span class="mini">updated daily</span></div>
+          <div class="module-body">
+            <table class="ticker">
+              <tr><td class="name">Projects</td><td class="val">4</td><td class="chg up">+1</td></tr>
+              <tr><td class="name">Languages</td><td class="val">3</td><td class="chg flat">nch</td></tr>
+              <tr><td class="name">Years coding</td><td class="val">5</td><td class="chg up">+1</td></tr>
+              <tr><td class="name">Commits</td><td class="val">1,284</td><td class="chg up">+37</td></tr>
+              <tr><td class="name">Coffees</td><td class="val">&#8734;</td><td class="chg up">+5</td></tr>
+            </table>
+            <div class="hirerow">
+              <span class="lbl">Hire me:</span>
+              <a href="mailto:morganocarroll01@gmail.com">GO</a>
             </div>
           </div>
         </div>
 
-        <div class="construction">
-          <span class="barber"></span>
-          <span class="construction-txt"><b>UNDER CONSTRUCTION</b>&mdash; pumps-os is still being built. Check back soon for screenshots! &#9888;</span>
-          <span class="barber"></span>
+        <!-- NOW PLAYING -->
+        <div class="module">
+          <div class="winamp-bar"><span>&#9835; NOW PLAYING</span><span>0:42 / 3:17</span></div>
+          <div class="winamp-body">
+            <div class="winamp-lcd"><span class="scroll">the hum of a QEMU virtual machine &mdash; live from my home lab &nbsp;&nbsp;&nbsp;</span></div>
+            <div class="eq"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
         </div>
-      </div>
-    </section>
 
-    <div class="cols">
-      <main>
-        <section class="panel" id="projects">
-          <div class="panel-head"><span>&#9733; My Projects</span><a class="more" href="#projects">view all &raquo;</a></div>
-          <div class="panel-body">
-            <article class="proj">
-              <div class="proj-ico ic-c">PPM Viewer</div>
-              <div class="proj-main">
-                <div class="proj-name"><a href="https://github.com/OCarrollM/cImageViewer" target="_blank">ppm-image-viewer</a></div>
-                <div class="proj-desc">A binary PPM parser and renderer. Reads pixel data byte-by-byte and displays via SDL2.</div>
-                <div class="chips"><span class="chip">C</span><span class="chip">SDL2</span><span class="chip">Binary I/O</span></div>
-              </div>
-            </article>
-
-            <article class="proj">
-              <div class="proj-ico ic-c">Pumps OS</div>
-              <div class="proj-main">
-                <div class="proj-name"><a href="https://github.com/OCarrollM/pumpsOS" target="_blank">pumps-os</a><span class="tag-hot">IN PROGRESS</span></div>
-                <div class="proj-desc">Operating system from scratch</div>
-                <div class="chips"><span class="chip">Assembly</span><span class="chip">C</span></div>
-              </div>
-            </article>
-
-            <article class="proj">
-              <div class="proj-ico ic-qdk">QDK Dev</div>
-              <div class="proj-main">
-                <div class="proj-name"><a href="https://github.com/OCarrollM/QDK" target="_blank">Quantum Dev Kit</a><span class="tag-hot">IN PROGRESS</span></div>
-                <div class="chips"><span class="chip">Q#</span></div>
-              </div>
-            </article>
-
-          </div>
-        </section>
-
-        <!-- About -->
-        <section class="panel" id="About">
-          <div class="panel-head"><span>&#9786; About Me</span></div>
-          <div class="panel-body">
-            <p class="about-intro">I am a Computer Scientist and Space nerd from Plymouth, currently in Lancaster University studying Cyber Security and previously completing a degree in Computer Science. Hopefully gearing up for a PhD in the School of Computing and Commincations (stay tuned!).</p>
-          </div>
-        </section>
-
-        <!-- Experience -->
-        <section class="panel" id="experience">
-          <div class="panel-head"><span>&#9632; Experience &amp; Education</span></div>
-          
-          <div class="exp">
-            <div class="exp-top"><span class="exp-role">Part Time Software Engineer</span><span class="exp-date">Oct 2025 &ndash; Present</span></div>
-            <div class="exp-org">@ ISS, Lancaster University</div>
-            <div class="exp-desc">Working on production ready projects for both clients and the internal university using Typescript, Python, AWS and more (stay tuned!)</div>
-          </div>
-
-          <div class="exp">
-            <div class="exp-top"><span class="exp-role">Student Ambassador</span><span class="exp-date">Oct 2022 &ndash; Present</span></div>
-            <div class="exp-org">@ Lancaster University</div>
-            <div class="exp-desc">Work closely with the department to deliver exciting events for prospective students</div>
-          </div>
-
-          <div class="exp">
-            <div class="exp-top"><span class="exp-role">MSc Cyber Security</span><span class="exp-date">Oct 2025 &ndash; Present</span></div>
-            <div class="exp-org">@ Lancaster University</div>
-            <div class="exp-desc">Currently studying! Pen testing, Forensics, Law, Networks, Cyber Crime</div>
-          </div>
-
-          <div class="exp">
-            <div class="exp-top"><span class="exp-role">MSci Computer Science</span><span class="exp-date">2021 &ndash; 2025</span></div>
-            <div class="exp-org">@ Lancaster University</div>
-            <div class="exp-desc">Previous Degree: Computing fundamentals, theory, industry experience (More to come soon)</div>
-          </div>
-        </section>
-
-      </main>
-
-      <!-- Side bar -->
-      <aside class="side">
-
-        <!-- Maybe add a spotify now playing feature with the API? -->
-
-        <!-- Skills (might update how this looks) -->
-         <div class="panel">
-          <div class="panel-head" style="font-size:13px;"><span>&#9636; My Skills</span></div>
-          <div class="panel-body">
-            <div class="skill"><div class="skill-top"><span>Python</span><span>90%</span></div><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
-            <div class="skill"><div class="skill-top"><span>C / Assembly</span><span>82%</span></div><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div>
+        <!-- SKILLS module with visual bars (from IE6 edition) -->
+        <div class="module">
+          <div class="module-head"><span>Toolbox</span></div>
+          <div class="module-body">
+            <div class="skill"><div class="skill-top"><span>Python / AWS</span><span>90%</span></div><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+            <div class="skill"><div class="skill-top"><span>C / Systems</span><span>82%</span></div><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div>
             <div class="skill"><div class="skill-top"><span>Docker / k8s</span><span>78%</span></div><div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div></div>
             <div class="skill"><div class="skill-top"><span>Linux / Git</span><span>85%</span></div><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
-            <div class="skill"><div class="skill-top"><span>Q#</span><span>20%</span></div><div class="skill-bar"><div class="skill-fill" style="width:20%"></div></div></div>
+            <div class="skill"><div class="skill-top"><span>Assembly</span><span>60%</span></div><div class="skill-bar"><div class="skill-fill" style="width:60%"></div></div></div>
           </div>
         </div>
 
-        <div class="panel">
-        <div class="panel-head" style="font-size:13px;"><span>&#9201; Visitor Count</span></div>
-        <div class="panel-body">
-          <div class="counter" id="counter"><span class="d">0</span><span class="d">0</span><span class="d">0</span><span class="d">0</span><span class="d">0</span><span class="d">0</span></div>
-          <div class="counter-note">Thanks for visiting! <b id="online">3</b> people online now.</div>
-        </div>
-      </div>
-
-      <div class="panel">
-        <div class="panel-head" style="font-size:13px;"><span>&#9888; Awards &amp; Badges</span></div>
-        <div class="panel-body">
-          <div class="awards">
-            <a class="b88 b88-ie" href="#"><span><span class="big">e</span> Best in IE6</span></a>
-            <a class="b88 b88-css" href="#"><span><span class="big">CSS</span> valid!</span></a>
-            <a class="b88 b88-htm" href="#"><span>valid<br>XHTML 1.0</span></a>
-            <a class="b88 b88-net" href="#"><span>made on a<br>56k modem</span></a>
-            <a class="b88 b88-rss" href="#"><span>&#9730; RSS<br>feed</span></a>
-            <a class="b88 b88-not" href="#"><span>made in<br>NOTEPAD</span></a>
+        <!-- WEB RING + AWARDS -->
+        <div class="module">
+          <div class="module-head"><span>Web Ring</span></div>
+          <div class="module-body">
+            <div class="webring">
+              <b>The CompSci Web Ring</b>
+              <div class="webring-nav"><a href="#">&#9664; Prev</a><a href="#">Random</a><a href="#">Next &#9654;</a></div>
+              <div>site #47 of 128</div>
+              <div class="awards">
+                <a class="b88 b88-ie" href="#"><span><span class="big">e</span> Best in IE6</span></a>
+                <a class="b88 b88-css" href="#"><span><span class="big">CSS</span> valid!</span></a>
+                <a class="b88 b88-htm" href="#"><span>valid<br>XHTML 1.0</span></a>
+                <a class="b88 b88-not" href="#"><span>made in<br>NOTEPAD</span></a>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+
       </aside>
     </div>
-
-    <hr class="rainbow">
-
-    <footer class="footer">
-      <hr class="rainbow">
-      <div class="footer-badges">
-        <a class="b88 b88-ie" href="#"><span><span class="big">e</span> get<br>Explorer</span></a>
-        <a class="b88 b88-htm" href="#"><span>powered by<br>k3s + Docker</span></a>
-        <a class="b88 b88-net" href="#"><span>made with<br>&#9829; and tea</span></a>
-      </div>
-      <div class="hitline">
-        <span>This page has been hit</span>
-        <span class="mono" id="hits" style="background:#0d1409;color:#b6ff7a;border:1px solid #324a22;padding:2px 6px;">000000</span>
-        <span>times since Aug 2002.</span>
-      </div>
-      <div>&copy; <span id="year">2002</span> Morgan O'Carroll &middot; Plymouth, UK &middot; Hand-coded with care &middot; <span class="email-anim">&#9993;</span> <a href="mailto:morganocarroll01@gmail.com">e-mail the webmaster</a></div>
-      <div class="mono" style="margin-top:5px;color:#8a97a4;">&lt;!-- Best viewed in IE6 at 1024&times;768. Netscape users: good luck. --&gt;</div>
-    </footer>
   </div>
 
-  <script src="js/image-slot.js"></script>
-  <script src="js/ie6.js"></script>
+  <!-- rainbow divider (from IE6 edition) -->
+  <hr class="rainbow">
+
+  <!-- ===================== GUESTBOOK ===================== -->
+  <div class="content" id="guestbook">
+    <div style="padding:14px 16px;">
+      <h2 style="font-family:Arial,sans-serif;font-size:13px;color:#1d4c84;border-bottom:2px solid #2c63a4;padding-bottom:3px;margin-bottom:10px;">&#9993; SIGN MY GUESTBOOK</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <form id="gbform" onsubmit="return false;">
+          <div style="font-size:11px;font-weight:bold;margin-bottom:3px;">Your name</div>
+          <input type="text" id="gbname" placeholder="e.g. CoolVisitor99" maxlength="40" style="width:100%;font:inherit;font-size:11px;padding:5px 7px;margin-bottom:8px;border:1px solid #9fb3c8;">
+          <div style="font-size:11px;font-weight:bold;margin-bottom:3px;">Your message</div>
+          <textarea id="gbmsg" placeholder="Say hi, leave a tip, or just sign your name!" maxlength="220" style="width:100%;font:inherit;font-size:11px;padding:5px 7px;margin-bottom:8px;border:1px solid #9fb3c8;resize:vertical;min-height:54px;"></textarea>
+          <button type="submit" style="font-family:Arial,sans-serif;font-weight:bold;font-size:11px;color:#fff;background:linear-gradient(to bottom,#7ec64a,#5fa015);border:1px solid #4a7d10;padding:6px 16px;cursor:pointer;">&#10004; Sign Guestbook</button>
+        </form>
+        <div>
+          <div style="font-family:Arial,sans-serif;font-weight:bold;color:#1d4c84;font-size:12px;margin-bottom:8px;">Recent signatures:</div>
+          <div id="gbentries" style="display:flex;flex-direction:column;gap:8px;max-height:200px;overflow-y:auto;padding-right:4px;">
+            <div class="gb-entry" style="background:#f4f7fa;border:1px solid #dfe5ea;padding:8px 10px;">
+              <div style="display:flex;justify-content:space-between;font-size:10px;"><span style="font-weight:bold;color:#0b4ea2;">webdev_dan</span><span style="color:#8a97a4;">12 May 2006</span></div>
+              <div style="font-size:11px;color:#4a5563;margin-top:3px;">cool site!! love the OS project, keep it up. added you to my web ring &#9786;</div>
+            </div>
+            <div class="gb-entry" style="background:#f4f7fa;border:1px solid #dfe5ea;padding:8px 10px;">
+              <div style="display:flex;justify-content:space-between;font-size:10px;"><span style="font-weight:bold;color:#0b4ea2;">stargazer_kate</span><span style="color:#8a97a4;">09 May 2006</span></div>
+              <div style="font-size:11px;color:#4a5563;margin-top:3px;">found you through the astronomy society page. neat layout!</div>
+            </div>
+            <div class="gb-entry" style="background:#f4f7fa;border:1px solid #dfe5ea;padding:8px 10px;">
+              <div style="display:flex;justify-content:space-between;font-size:10px;"><span style="font-weight:bold;color:#0b4ea2;">l33t_coder</span><span style="color:#8a97a4;">03 May 2006</span></div>
+              <div style="font-size:11px;color:#4a5563;margin-top:3px;">writing an OS in asm is hardcore. respect. &#9889;</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="#top">Home</a> &middot;
+      <a href="#projects">Projects</a> &middot;
+      <a href="#about">About</a> &middot;
+      <a href="#experience">Experience</a> &middot;
+      <a href="#guestbook">Guestbook</a> &middot;
+      <a href="mailto:morganocarroll01@gmail.com">Contact</a>
+    </div>
+    <div class="hitline">
+      <span>This page has been visited</span>
+      <span class="hits" id="hits">000000</span>
+      <span>times. You are visitor no. <b id="visnum">000000</b>.</span>
+    </div>
+    <div>&copy; <span id="year">2006</span> Morgan O'Carroll &middot; Plymouth, UK &middot; <span class="email-anim">&#9993;</span> <a href="mailto:morganocarroll01@gmail.com">e-mail the webmaster</a></div>
+    <div class="mono">&lt;!-- Best viewed in Internet Explorer 6 at 1024&times;768 --&gt;</div>
+  </footer>
+
+</div>
+
+<script src="js/image-slot.js"></script>
+<script src="js/msn-portal.js"></script>
 </body>
 </html>
-
-<!-- TODO: -->
-
-<!-- Projects pages
-Paper pages
-Update homepage with:
-  - Spotify player
-  - Other niche things -->
