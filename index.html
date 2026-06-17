@@ -244,18 +244,20 @@
           </div>
         </div>
 
+        <!-- SPACE WIDGET (live: NASA picture of the day + ISS) -->
         <div class="module">
           <div class="module-head"><span>Mission Control</span><span class="mini">live</span></div>
           <div class="space-body">
-            <div class="space-hero">
-              <div class="space-label">🚀 Next Launch</div>
-              <div class="space-launch" id="space-launch">Loading launch feed…</div>
-              <div class="space-meta" id="space-meta">&nbsp;</div>
-              <div class="space-countdown" id="space-cd">T- –:–:–</div>
-            </div>
+            <a class="apod" id="apod-link" href="https://apod.nasa.gov/apod/" target="_blank" rel="noopener">
+              <div class="apod-img apod-empty" id="apod-img">&#128640;</div>
+              <div class="apod-cap">
+                <div class="apod-label">&#128301; Astronomy Pic of the Day</div>
+                <div class="apod-title" id="apod-title">Loading today&rsquo;s image&hellip;</div>
+              </div>
+            </a>
             <div class="space-iss">
-              <span class="sat">🛰</span>
-              <div>ISS is over<br><span id="space-iss-pos">locating…</span></div>
+              <span class="sat">&#128752;</span>
+              <div>ISS is over<br><span id="space-iss-pos">locating&hellip;</span></div>
             </div>
           </div>
         </div>

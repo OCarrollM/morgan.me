@@ -78,41 +78,32 @@
       .catch(function () { renderNP(null); });
   }
 
-  /* ============================================================
-     2) SPACE WIDGET — next launch + ISS position (no backend)
-     ============================================================ */
-  var cdTarget = null, cdTimer = null;
+  var NASA_KEY = 'Qrx9jBj8i86X6DfUpMOSlsaLEN1cv2abITZsqm6p';
 
-  function tickCountdown() {
-    var el = document.getElementById('space-cd');
-    if (!el || !cdTarget) return;
-    var diff = cdTarget - Date.now();
-    if (diff <= 0) { el.textContent = 'LIFTOFF \u2191'; return; }
-    var d = Math.floor(diff / 86400000);
-    var h = Math.floor((diff % 86400000) / 3600000);
-    var m = Math.floor((diff % 3600000) / 60000);
-    var s = Math.floor((diff % 60000) / 1000);
-    el.textContent = 'T- ' + (d > 0 ? d + 'd ' : '') + String(h).padStart(2, '0') + ':' + String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
-  }
-
-  function loadLaunch() {
-    var nameEl = document.getElementById('space-launch');
-    var metaEl = document.getElementById('space-meta');
-    fetch('https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=1&hide_recent_previous=true')
+  function loadAPOD() {
+    var imgEl   = document.getElementById('apod-img');
+    var titleEl = document.getElementById('apod-title');
+    var linkEl  = document.getElementById('apod-link');
+    fetch('https://api.nasa.gov/planetary/apod?thumbs=true&api_key=' + NASA_KEY)
       .then(function (r) { return r.json(); })
-      .then(function (j) {
-        var L = j.results && j.results[0];
-        if (!L) throw new Error('no launch');
-        if (nameEl) nameEl.textContent = L.name || 'Upcoming launch';
-        var prov = (L.launch_service_provider && L.launch_service_provider.name) || '';
-        var pad = (L.pad && L.pad.location && L.pad.location.name) || '';
-        if (metaEl) metaEl.textContent = [prov, pad].filter(Boolean).join(' \u00b7 ');
-        if (L.net) { cdTarget = new Date(L.net).getTime(); tickCountdown(); }
+      .then(function (d) {
+        if (titleEl) titleEl.textContent = d.title || 'Astronomy Picture of the Day';
+        var src = d.media_type === 'image' ? d.url : (d.thumbnail_url || '');
+        if (imgEl) {
+          if (src) {
+            imgEl.style.backgroundImage = 'url("' + src + '")';
+            imgEl.classList.remove('apod-empty');
+            imgEl.textContent = '';
+          } else {
+            imgEl.classList.add('apod-empty');
+            imgEl.textContent = '\uD83D\uDCF9';   // video day, no thumb
+          }
+        }
+        if (linkEl) linkEl.href = (d.media_type === 'image' ? (d.hdurl || d.url) : d.url) || 'https://apod.nasa.gov/apod/';
       })
       .catch(function () {
-        if (nameEl) nameEl.textContent = 'Next launch unavailable';
-        if (metaEl) metaEl.textContent = 'couldn\u2019t reach the launch feed';
-        var el = document.getElementById('space-cd'); if (el) el.textContent = 'T- \u2014:\u2014:\u2014';
+        if (titleEl) titleEl.textContent = 'Couldn\u2019t reach NASA today';
+        if (imgEl) { imgEl.classList.add('apod-empty'); imgEl.textContent = '\uD83D\uDE80'; }
       });
   }
 
@@ -136,9 +127,9 @@
     setInterval(pollSpotify, 30000); // refresh every 30s
 
     // Space
-    loadLaunch();
+    loadAPOD();
     loadISS();
-    cdTimer = setInterval(tickCountdown, 1000);
     setInterval(loadISS, 20000);     // ISS moves fast — refresh often
+    setInterval(loadAPOD, 3600000);  // APOD changes once a day — hourly recheck is plenty
   });
 })();

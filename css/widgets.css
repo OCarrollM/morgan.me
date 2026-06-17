@@ -48,34 +48,33 @@
 
 /* ---------- SPACE WIDGET ---------- */
 .space-body { padding: 0; background: #fff; }
-.space-hero {
+
+/* NASA Astronomy Picture of the Day */
+.apod { display: block; text-decoration: none; color: inherit; }
+.apod:hover { text-decoration: none; }
+.apod-img {
+  width: 100%; height: 122px;
+  background: #0a1024 center/cover no-repeat;
+  border-bottom: 1px solid #2c63a4;
+  display: grid; place-items: center;
+}
+.apod-img.apod-empty {
+  font-size: 30px;
   background: linear-gradient(to bottom, #0c1838, #0a1024);
-  color: #cfe0ff; padding: 9px 10px; border-bottom: 1px solid #2c63a4;
-  position: relative; overflow: hidden;
 }
-/* tiny starfield only inside the widget hero */
-.space-hero::before {
-  content: ""; position: absolute; inset: 0; opacity: .8;
-  background-image:
-    radial-gradient(1px 1px at 18px 12px, #fff, transparent),
-    radial-gradient(1px 1px at 64px 30px, #cfe0ff, transparent),
-    radial-gradient(1px 1px at 110px 16px, #fff, transparent),
-    radial-gradient(1px 1px at 150px 38px, #bcd2ff, transparent),
-    radial-gradient(1px 1px at 40px 44px, #fff, transparent);
-  animation: twk 3s ease-in-out infinite alternate;
+.apod-cap {
+  background: linear-gradient(to bottom, #0c1838, #0a1024);
+  padding: 7px 10px; border-bottom: 1px solid #2c63a4;
 }
-@keyframes twk { from{opacity:.35} to{opacity:.9} }
-.space-hero > * { position: relative; z-index: 1; }
-.space-label {
+.apod-label {
   font-family: Arial, sans-serif; font-size: 9px; font-weight: bold; letter-spacing: .5px;
   text-transform: uppercase; color: #9fc0ee;
 }
-.space-launch { font-family: Georgia, serif; font-size: 13px; font-weight: bold; color: #fff; line-height: 1.2; margin: 2px 0; }
-.space-meta { font-size: 10px; color: #aac4ea; }
-.space-countdown {
-  font-family: "Courier New", monospace; font-size: 16px; font-weight: bold; color: #7ec64a;
-  margin-top: 4px; letter-spacing: 1px; text-shadow: 0 0 6px rgba(126,198,74,.5);
+.apod-title {
+  font-family: Georgia, serif; font-size: 12px; font-weight: bold; color: #fff;
+  line-height: 1.25; margin-top: 2px;
 }
+.apod:hover .apod-title { color: #ffd86a; }
 .space-iss {
   display: flex; align-items: center; gap: 7px;
   padding: 7px 10px; font-size: 10px; color: var(--ink);
@@ -85,5 +84,5 @@
 .space-iss b { color: var(--module-deep); }
 
 @media (prefers-reduced-motion: reduce) {
-  .np-title.is-long .scroll, .np-dot, .space-hero::before, .space-iss .sat { animation: none !important; }
+  .np-title.is-long .scroll, .np-dot, .space-iss .sat { animation: none !important; }
 }
