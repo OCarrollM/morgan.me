@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>morgan.me :: Projects</title>
+<link rel="stylesheet" href="css/msn-portal.css">
+<link rel="stylesheet" href="css/msn-combined.css">
+<link rel="stylesheet" href="redesign/css/pages.css?v=1">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%231f5096'/><text x='50' y='74' font-size='58' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>m</text></svg>">
+</head>
+<body>
+
+<div class="portal" data-screen-label="Projects">
+
+  <!-- ===================== TOP UTILITY STRIP ===================== -->
+  <div class="topbar">
+    <span class="colors">Change colors: <a href="#" class="off">Simple White</a> &nbsp; <a href="#" class="on">Classic Blue</a></span>
+    <span class="right">
+      <span class="msgr">Connect &amp; share instantly &mdash; say hi on LinkedIn</span>
+      <a href="#">RSS</a>
+      <a href="#">Sitemap</a>
+    </span>
+  </div>
+
+  <!-- ===================== MASTHEAD ===================== -->
+  <header class="masthead">
+    <div class="masthead-grid">
+      <div class="logo">morgan<span class="dot">.</span>me<span class="fly"></span></div>
+      <div class="cat-row">
+        <span class="cat-label">Select a page:</span>
+        <span class="cats">
+          <a href="index.html">Home</a>
+          <a class="on" href="projects.html">Projects</a>
+          <a href="about.html">About</a>
+          <a href="experience.html">Experience</a>
+          <a href="Combined Edition.html#guestbook">Guestbook</a>
+        </span>
+      </div>
+      <div class="search-row">
+        <span class="search-label">Search this site:</span>
+        <form onsubmit="return false;">
+          <input type="text" placeholder="e.g. operating systems, AWS, C..." aria-label="search">
+          <button type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== CONTENT ===================== -->
+  <div class="content">
+    <div class="page-head">
+      <div class="breadcrumb"><a href="Combined Edition.html">Home</a> &rsaquo; Projects</div>
+      <div class="page-title">My <span class="em">Projects</span></div>
+    </div>
+
+    <div class="cols inner">
+
+      <!-- left rail -->
+      <nav class="col-left">
+        <div class="navgroup">
+          <h3>Jump To</h3>
+          <ul class="navlist">
+            <li><a href="#hyper-track">hyper-track</a><span class="tag-new">NEW</span></li>
+            <li><a href="#ppm">ppm-image-viewer</a></li>
+            <li><a href="#pumps-os">pumps-os</a></li>
+            <li><a href="#website">this website</a></li>
+          </ul>
+        </div>
+        <div class="navgroup">
+          <h3>Elsewhere</h3>
+          <ul class="navlist">
+            <li><a href="https://github.com/OCarrollM" target="_blank">All repos &raquo;</a></li>
+            <li><a href="about.html">About me</a></li>
+            <li><a href="experience.html">Experience</a></li>
+          </ul>
+        </div>
+        <div class="sidebar-note">
+          <b>&#128193; 4 projects</b><br>
+          Most are open-source &mdash; clone away and have a poke around.
+        </div>
+      </nav>
+
+      <!-- main -->
+      <main class="col-mid">
+        <div class="pcards">
+
+          <article class="pcard" id="hyper-track">
+            <div class="pcard-ico ic-aws">AWS</div>
+            <div class="pcard-main">
+              <div class="pcard-name"><a href="https://github.com/OCarrollM/aws-gym-tracker" target="_blank">hyper-track</a><span class="tag-new blink">NEW!</span></div>
+              <div class="pcard-desc">An AWS-backed gym tracker &mdash; a practical dive into cloud architecture and backend fundamentals. Tracks workouts, stores them in the cloud, and was my proper introduction to building on AWS end-to-end.</div>
+              <div class="pcard-chips"><span class="pchip">AWS</span><span class="pchip">Python</span><span class="pchip">Cloud</span></div>
+            </div>
+          </article>
+
+          <article class="pcard" id="ppm">
+            <div class="pcard-ico ic-c">PPM</div>
+            <div class="pcard-main">
+              <div class="pcard-name"><a href="https://github.com/OCarrollM/cImageViewer" target="_blank">ppm-image-viewer</a></div>
+              <div class="pcard-desc">A binary PPM parser and renderer written in C. It reads pixel data byte-by-byte straight from the file and paints it to the screen with SDL2 &mdash; a hands-on lesson in binary file formats and low-level graphics.</div>
+              <div class="pcard-chips"><span class="pchip">C</span><span class="pchip">SDL2</span><span class="pchip">Binary I/O</span></div>
+            </div>
+          </article>
+
+          <article class="pcard" id="pumps-os">
+            <div class="pcard-ico ic-os">OS</div>
+            <div class="pcard-main">
+              <div class="pcard-name"><a href="https://github.com/OCarrollM/pumpsOS" target="_blank">pumps-os</a><span class="tag-hot">IN PROGRESS</span></div>
+              <div class="pcard-desc">An operating system written from scratch. So far: VGA text mode, a scrolling terminal, and the fundamentals of a kernel &mdash; built one interrupt at a time in Assembly and C, booted in QEMU.</div>
+              <div class="pcard-chips"><span class="pchip">Assembly</span><span class="pchip">C</span><span class="pchip">QEMU</span></div>
+            </div>
+          </article>
+
+          <article class="pcard" id="website">
+            <div class="pcard-ico ic-k8">K8s</div>
+            <div class="pcard-main">
+              <div class="pcard-name"><a href="https://github.com/OCarrollM/morgan.me" target="_blank">this website</a></div>
+              <div class="pcard-desc">The very page you're reading &mdash; containerised with Docker and deployed on my own Kubernetes (k3s) cluster. A playground for both web design and the ops side of running real infrastructure.</div>
+              <div class="pcard-chips"><span class="pchip">Docker</span><span class="pchip">Kubernetes</span><span class="pchip">HTML/CSS</span></div>
+            </div>
+          </article>
+
+        </div>
+      </main>
+
+    </div>
+  </div>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="Combined Edition.html">Home</a> &middot;
+      <a href="projects.html">Projects</a> &middot;
+      <a href="about.html">About</a> &middot;
+      <a href="experience.html">Experience</a> &middot;
+      <a href="Combined Edition.html#guestbook">Guestbook</a> &middot;
+      <a href="/cdn-cgi/l/email-protection#3c51534e5b5d52535f5d4e4e5350500c0d7c5b515d5550125f5351">Contact</a>
+    </div>
+    <div class="hitline">
+      <span>This page has been visited</span>
+      <span class="hits" id="hits">000000</span>
+      <span>times. You are visitor no. <b id="visnum">000000</b>.</span>
+    </div>
+    <div>&copy; <span id="year">2006</span> Morgan O'Carroll &middot; Plymouth, UK &middot; <span class="email-anim">&#9993;</span> <a href="/cdn-cgi/l/email-protection#96fbf9e4f1f7f8f9f5f7e4e4f9fafaa6a7d6f1fbf7fffab8f5f9fb">e-mail the webmaster</a></div>
+    <div class="mono">&lt;!-- Best viewed in Internet Explorer 6 at 1024&times;768 --&gt;</div>
+  </footer>
+
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="redesign/js/msn-portal.js?v=1"></script>
+</body>
+</html>
