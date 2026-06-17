@@ -6,6 +6,7 @@
 <title>morgan.me :: Home</title>
 <link rel="stylesheet" href="css/msn-portal.css">
 <link rel="stylesheet" href="css/msn-combined.css">
+<link rel="stylesheet" href="css/widgets.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%231f5096'/><text x='50' y='74' font-size='58' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>m</text></svg>">
 </head>
 <body>
@@ -214,7 +215,7 @@
           <div class="module-body">
             <table class="ticker">
               <tr><td class="name">Projects</td><td class="val">4</td><td class="chg up">+1</td></tr>
-              <tr><td class="name">Languages</td><td class="val">1</td><td class="chg flat">-</td></tr>
+              <tr><td class="name">Languages</td><td class="val">9</td><td class="chg up">+1</td></tr>
               <tr><td class="name">Years coding</td><td class="val">10</td><td class="chg up">+1</td></tr>
               <tr><td class="name">Commits</td><td class="val">560</td><td class="chg up">+37</td></tr>
               <tr><td class="name">Pepsi's</td><td class="val">&#8734;</td><td class="chg up">+&#8734;</td></tr>
@@ -228,10 +229,34 @@
 
         <!-- NOW PLAYING -->
         <div class="module">
-          <div class="winamp-bar"><span>&#9835; NOW PLAYING</span><span>0:42 / 3:17</span></div>
-          <div class="winamp-body">
-            <div class="winamp-lcd"><span class="scroll">the hum of a QEMU virtual machine &mdash; live from my home lab &nbsp;&nbsp;&nbsp;</span></div>
-            <div class="eq"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="winamp-bar"><span>♪ NOW PLAYING</span><span id="np-state">Offline</span></div>
+          <div class="np-body">
+            <div class="np">
+              <div class="np-art" id="np-art">♫</div>
+              <div class="np-info">
+                <div class="np-title" id="np-title"><span class="scroll">Nothing playing right now</span></div>
+                <div class="np-artist" id="np-artist">check back when I'm at the keyboard</div>
+                <div class="np-state"><span class="np-dot off" id="np-dot"></span> <span>Spotify</span></div>
+              </div>
+            </div>
+            <div class="np-prog"><div class="np-prog-fill" id="np-fill"></div></div>
+            <div class="np-times"><span id="np-cur">0:00</span><span id="np-dur">0:00</span></div>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="module-head"><span>Mission Control</span><span class="mini">live</span></div>
+          <div class="space-body">
+            <div class="space-hero">
+              <div class="space-label">🚀 Next Launch</div>
+              <div class="space-launch" id="space-launch">Loading launch feed…</div>
+              <div class="space-meta" id="space-meta">&nbsp;</div>
+              <div class="space-countdown" id="space-cd">T- –:–:–</div>
+            </div>
+            <div class="space-iss">
+              <span class="sat">🛰</span>
+              <div>ISS is over<br><span id="space-iss-pos">locating…</span></div>
+            </div>
           </div>
         </div>
 
@@ -316,5 +341,7 @@
 
 <script src="js/image-slot.js"></script>
 <script src="js/msn-portal.js"></script>
+<script src="js/widgets.js"></script>
 </body>
 </html>
+

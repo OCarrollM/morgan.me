@@ -1,0 +1,89 @@
+/* ---------- SPOTIFY NOW PLAYING ---------- */
+.np-body { padding: 8px; background: #141a22; }
+.np {
+  display: flex; gap: 9px; align-items: center;
+}
+.np-art {
+  flex: 0 0 auto; width: 48px; height: 48px;
+  background: #0c1408 center/cover no-repeat;
+  border: 1px solid #2a3a22; image-rendering: auto;
+  display: grid; place-items: center; color: #3a5a2a; font-size: 16px;
+}
+.np-info { flex: 1 1 auto; min-width: 0; }
+.np-title {
+  font-family: "Courier New", monospace; font-size: 11px; font-weight: bold; color: #6fe66f;
+  white-space: nowrap; overflow: hidden;
+}
+.np-title .scroll { display: inline-block; }
+.np-title.is-long .scroll { animation: npscroll 9s linear infinite; }
+@keyframes npscroll { 0%,12%{transform:translateX(0)} 100%{transform:translateX(-100%)} }
+.np-artist {
+  font-family: "Courier New", monospace; font-size: 10px; color: #cfe2a0;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 1px;
+}
+.np-state {
+  display: flex; align-items: center; gap: 5px; font-size: 9px; color: #8fbf6a; margin-top: 3px;
+  text-transform: uppercase; letter-spacing: .4px;
+}
+.np-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #b6ff7a, #5fa015 60%, #3a6b08);
+  animation: npblink 1.4s ease-in-out infinite;
+}
+.np-dot.off { background: #5a6675; animation: none; }
+@keyframes npblink { 0%,100%{opacity:1} 50%{opacity:.4} }
+/* progress bar */
+.np-prog { height: 5px; background: #0c1408; border: 1px solid #2a3a22; margin-top: 7px; padding: 1px; }
+.np-prog-fill {
+  height: 100%; width: 0%;
+  background: linear-gradient(to bottom, #b6ff7a, #5fa015);
+  transition: width 1s linear;
+}
+.np-times {
+  display: flex; justify-content: space-between;
+  font-family: "Courier New", monospace; font-size: 9px; color: #6f8f4f; margin-top: 3px;
+}
+.np a { color: inherit; text-decoration: none; }
+.np a:hover { text-decoration: underline; }
+
+/* ---------- SPACE WIDGET ---------- */
+.space-body { padding: 0; background: #fff; }
+.space-hero {
+  background: linear-gradient(to bottom, #0c1838, #0a1024);
+  color: #cfe0ff; padding: 9px 10px; border-bottom: 1px solid #2c63a4;
+  position: relative; overflow: hidden;
+}
+/* tiny starfield only inside the widget hero */
+.space-hero::before {
+  content: ""; position: absolute; inset: 0; opacity: .8;
+  background-image:
+    radial-gradient(1px 1px at 18px 12px, #fff, transparent),
+    radial-gradient(1px 1px at 64px 30px, #cfe0ff, transparent),
+    radial-gradient(1px 1px at 110px 16px, #fff, transparent),
+    radial-gradient(1px 1px at 150px 38px, #bcd2ff, transparent),
+    radial-gradient(1px 1px at 40px 44px, #fff, transparent);
+  animation: twk 3s ease-in-out infinite alternate;
+}
+@keyframes twk { from{opacity:.35} to{opacity:.9} }
+.space-hero > * { position: relative; z-index: 1; }
+.space-label {
+  font-family: Arial, sans-serif; font-size: 9px; font-weight: bold; letter-spacing: .5px;
+  text-transform: uppercase; color: #9fc0ee;
+}
+.space-launch { font-family: Georgia, serif; font-size: 13px; font-weight: bold; color: #fff; line-height: 1.2; margin: 2px 0; }
+.space-meta { font-size: 10px; color: #aac4ea; }
+.space-countdown {
+  font-family: "Courier New", monospace; font-size: 16px; font-weight: bold; color: #7ec64a;
+  margin-top: 4px; letter-spacing: 1px; text-shadow: 0 0 6px rgba(126,198,74,.5);
+}
+.space-iss {
+  display: flex; align-items: center; gap: 7px;
+  padding: 7px 10px; font-size: 10px; color: var(--ink);
+}
+.space-iss .sat { font-size: 14px; animation: orbit 4s linear infinite; }
+@keyframes orbit { 0%,100%{transform:translateX(0)} 50%{transform:translateX(3px)} }
+.space-iss b { color: var(--module-deep); }
+
+@media (prefers-reduced-motion: reduce) {
+  .np-title.is-long .scroll, .np-dot, .space-hero::before, .space-iss .sat { animation: none !important; }
+}
