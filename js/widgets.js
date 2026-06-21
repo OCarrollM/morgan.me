@@ -1,3 +1,4 @@
+
 /* =================================================================
    morgan.me — Widgets behaviour
    1. Spotify now-playing  — set SPOTIFY_ENDPOINT to your backend URL.
@@ -17,7 +18,7 @@
          "progressMs": 42000, "durationMs": 197000 }
      Until then it shows a friendly fallback.
      ============================================================ */
-  var SPOTIFY_ENDPOINT = ''; // e.g. 'https://your-worker.workers.dev/now-playing'
+  var SPOTIFY_ENDPOINT = 'https://api.morganoc.me/now-playing'; // e.g. 'https://your-worker.workers.dev/now-playing'
 
   function fmt(ms) {
     if (ms == null) return '0:00';
