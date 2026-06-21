@@ -1,0 +1,83 @@
+# No image build needed. Runs the public node:22-alpine image and loads your
+# server.js from a ConfigMap (created separately with kubectl --from-file).
+# Apply order is in DEPLOY-WSL2.md — namespace + configmap must exist first.
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: now-playing
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: spotify-secrets
+  namespace: now-playing
+type: Opaque
+stringData:
+  SPOTIFY_CLIENT_ID: "eef98ca82620488488186ff5857502bc"
+  SPOTIFY_CLIENT_SECRET: "1854a2842923410eb712f596902c1d1d"
+  SPOTIFY_REFRESH_TOKEN: "AQDRTIkQEoOxZn71xgi7e2CYDc8UbVUPjPd95Mo1vU6OYfZQHNRRCAxyTJ3jQE-jGvV0sHd8-I8KoaAaH5PkbzpAOSF4-bdthZ70gnBt26MhGScDN9XzByq2QclzS2IyCr8"
+  ALLOW_ORIGIN: "https://morganoc.me"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spotify-now-playing
+  namespace: now-playing
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spotify-now-playing
+  template:
+    metadata:
+      labels:
+        app: spotify-now-playing
+    spec:
+      containers:
+        - name: app
+          image: node:22-alpine
+          command: ["node", "/app/server.js"]
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - secretRef:
+                name: spotify-secrets
+          volumeMounts:
+            - name: code
+              mountPath: /app
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 3
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 20
+          resources:
+            requests:
+              cpu: 10m
+              memory: 32Mi
+            limits:
+              cpu: 100m
+              memory: 64Mi
+      volumes:
+        - name: code
+          configMap:
+            name: server-code
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: spotify-now-playing
+  namespace: now-playing
+spec:
+  selector:
+    app: spotify-now-playing
+  ports:
+    - port: 80
+      targetPort: 8080
