@@ -6,7 +6,7 @@
 <title>morgan.me :: Projects</title>
 <link rel="stylesheet" href="css/msn-portal.css">
 <link rel="stylesheet" href="css/msn-combined.css">
-<link rel="stylesheet" href="redesign/css/pages.css?v=1">
+<link rel="stylesheet" href="css/pages.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%231f5096'/><text x='50' y='74' font-size='58' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>m</text></svg>">
 </head>
 <body>
@@ -15,9 +15,8 @@
 
   <!-- ===================== TOP UTILITY STRIP ===================== -->
   <div class="topbar">
-    <span class="colors">Change colors: <a href="#" class="off">Simple White</a> &nbsp; <a href="#" class="on">Classic Blue</a></span>
     <span class="right">
-      <span class="msgr">Connect &amp; share instantly &mdash; say hi on LinkedIn</span>
+      <span class="msgr">Connect &amp; share instantly &mdash; say hi on <a href="https://uk.linkedin.com/in/morganocarroll">LinkedIn</a></span>
       <a href="#">RSS</a>
       <a href="#">Sitemap</a>
     </span>
@@ -50,7 +49,7 @@
   <!-- ===================== CONTENT ===================== -->
   <div class="content">
     <div class="page-head">
-      <div class="breadcrumb"><a href="Combined Edition.html">Home</a> &rsaquo; Projects</div>
+      <div class="breadcrumb"><a href="index.html">Home</a> &rsaquo; Projects</div>
       <div class="page-title">My <span class="em">Projects</span></div>
     </div>
 
@@ -83,12 +82,59 @@
 
       <!-- main -->
       <main class="col-mid">
+
+        <section class="feature" id="projects">
+          <div class="feature-head">&#9733; Featured Project</div>
+          <div class="feature-body">
+            <div class="feature-main">
+              <div class="feature-title"><a href="https://github.com/OCarrollM/pumpsOS" target="_blank">PumpsOS: an OS from scratch</a></div>
+              <div class="feature-sub">Building a OS one interrupt at a time &mdash; currently in progress.</div>
+              <ul class="feature-list">
+                <li>Interactive terminal &amp; a internal debugger</li>
+                <li>Written in Assembly &amp; C, booted in QEMU</li>
+                <li>The fundamentals of a real OS, by hand</li>
+              </ul>
+            </div>
+          </div>
+          <div class="construction">
+            <span class="barber"></span>
+            <span><b>UNDER CONSTRUCTION!</b> &mdash; screenshots coming soon. Check back! &#9888;</span>
+            <span class="barber"></span>
+          </div>
+        </section>
         <div class="pcards">
+
+          <article class="pcard" id="qdk">
+            <div class="pcard-ico ic-qdk">DISS</div>
+            <div class="pcard-main">
+              <div class="pcard-name"><a href="#" target="_blank">Secure trust methods on resource contstrained space craft</a><span class="tag-hot blink">IN PROGRESS!</span></div>
+              <div class="pcard-desc">Dissertation! Check back soon for blog posts</div>
+              <div class="pcard-chips"><span class="pchip">Python</span></div>
+            </div>
+          </article>
+
+          <article class="pcard" id="qdk">
+            <div class="pcard-ico ic-qdk">QDK</div>
+            <div class="pcard-main">
+              <div class="pcard-name"><a href="https://github.com/OCarrollM/QDK" target="_blank">Quantum Development Kit</a><span class="tag-new blink">NEW!</span></div>
+              <div class="pcard-desc">Playing around with Microsofts Quantum Development kit, learning how quantum computing works on a regular CPU</div>
+              <div class="pcard-chips"><span class="pchip">Q#</span></div>
+            </div>
+          </article>
+
+          <article class="pcard" id="tui">
+            <div class="pcard-ico ic-tui">TUI</div>
+            <div class="pcard-main">
+              <div class="pcard-name"><a href="https://github.com/OCarrollM/fluidTUI" target="_blank">FluidTUI</a><span class="tag-hot blink">UPCOMING!</span></div>
+              <div class="pcard-desc">A terminal user interface programme showcasing fluid ASCII animations</div>
+              <div class="pcard-chips"><span class="pchip">Rust</span></div>
+            </div>
+          </article>
 
           <article class="pcard" id="hyper-track">
             <div class="pcard-ico ic-aws">AWS</div>
             <div class="pcard-main">
-              <div class="pcard-name"><a href="https://github.com/OCarrollM/aws-gym-tracker" target="_blank">hyper-track</a><span class="tag-new blink">NEW!</span></div>
+              <div class="pcard-name"><a href="https://github.com/OCarrollM/aws-gym-tracker" target="_blank">hyper-track</a></div>
               <div class="pcard-desc">An AWS-backed gym tracker &mdash; a practical dive into cloud architecture and backend fundamentals. Tracks workouts, stores them in the cloud, and was my proper introduction to building on AWS end-to-end.</div>
               <div class="pcard-chips"><span class="pchip">AWS</span><span class="pchip">Python</span><span class="pchip">Cloud</span></div>
             </div>
@@ -100,15 +146,6 @@
               <div class="pcard-name"><a href="https://github.com/OCarrollM/cImageViewer" target="_blank">ppm-image-viewer</a></div>
               <div class="pcard-desc">A binary PPM parser and renderer written in C. It reads pixel data byte-by-byte straight from the file and paints it to the screen with SDL2 &mdash; a hands-on lesson in binary file formats and low-level graphics.</div>
               <div class="pcard-chips"><span class="pchip">C</span><span class="pchip">SDL2</span><span class="pchip">Binary I/O</span></div>
-            </div>
-          </article>
-
-          <article class="pcard" id="pumps-os">
-            <div class="pcard-ico ic-os">OS</div>
-            <div class="pcard-main">
-              <div class="pcard-name"><a href="https://github.com/OCarrollM/pumpsOS" target="_blank">pumps-os</a><span class="tag-hot">IN PROGRESS</span></div>
-              <div class="pcard-desc">An operating system written from scratch. So far: VGA text mode, a scrolling terminal, and the fundamentals of a kernel &mdash; built one interrupt at a time in Assembly and C, booted in QEMU.</div>
-              <div class="pcard-chips"><span class="pchip">Assembly</span><span class="pchip">C</span><span class="pchip">QEMU</span></div>
             </div>
           </article>
 

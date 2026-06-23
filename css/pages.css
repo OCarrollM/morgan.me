@@ -1,0 +1,100 @@
+/* =================================================================
+   morgan.me — Inner page styles
+   Shared chrome lives in msn-portal.css / msn-combined.css.
+   This adds: page-title bar, breadcrumb, 2-col inner layout,
+   article "prose", and a blog post list. Load LAST.
+   ================================================================= */
+
+/* two-column inner layout: left nav rail + main content */
+.cols.inner { grid-template-columns: 158px 1fr; }
+
+/* page title bar (sits at top of the white content frame) */
+.page-head {
+  background: linear-gradient(to bottom, #f3f8fc, #dfeaf4);
+  border-bottom: 2px solid var(--module);
+  padding: 10px 16px;
+}
+.breadcrumb { font-size: 10px; color: var(--ink-soft); margin-bottom: 2px; }
+.breadcrumb a { color: var(--link); }
+.page-title {
+  font-family: Georgia, "Times New Roman", serif; font-size: 20px; font-weight: bold;
+  color: var(--module-deep); line-height: 1.1;
+}
+.page-title .em { color: var(--orange-deep); }
+
+/* article prose */
+.prose { font-size: 12px; color: var(--ink); line-height: 1.7; }
+.prose > :first-child { margin-top: 0; }
+.prose h2 {
+  font-family: Georgia, serif; font-size: 16px; color: var(--module-deep);
+  border-bottom: 1px solid var(--rule); padding-bottom: 3px; margin: 18px 0 8px;
+}
+.prose h3 {
+  font-family: Arial, sans-serif; font-size: 12px; color: var(--ink-strong, #1d2c3a);
+  text-transform: uppercase; letter-spacing: .4px; margin: 14px 0 5px;
+}
+.prose p { margin: 0 0 10px; }
+.prose a { color: var(--link); }
+.prose ul, .prose ol { margin: 0 0 10px; padding-left: 20px; }
+.prose li { margin: 2px 0; }
+.prose blockquote {
+  margin: 0 0 10px; padding: 6px 12px; background: var(--module-soft);
+  border-left: 3px solid var(--module); color: #3c4b59; font-style: italic;
+}
+.prose code {
+  font-family: "Courier New", monospace; font-size: 11px; background: #eef2f6;
+  border: 1px solid #d2dde8; padding: 0 4px;
+}
+.prose pre {
+  font-family: "Courier New", monospace; font-size: 11px; color: #d6e9c8;
+  background: #14200d; border: 1px solid #2a3a22; padding: 10px 12px; overflow-x: auto;
+}
+.prose pre code { background: none; border: none; color: inherit; padding: 0; }
+.prose hr { border: none; border-top: 1px dotted var(--rule); margin: 16px 0; }
+.prose img { max-width: 100%; height: auto; border: 1px solid var(--line); }
+
+/* blog post list (index) */
+.post-list { display: flex; flex-direction: column; }
+.post {
+  padding: 14px 0; border-bottom: 1px dotted var(--rule);
+}
+.post:last-child { border-bottom: none; }
+.post-title {
+  font-family: Georgia, serif; font-size: 16px; font-weight: bold; line-height: 1.2; margin-bottom: 2px;
+}
+.post-title a { color: var(--link); }
+.post-title a:hover { color: var(--orange); }
+.post-meta { font-size: 10px; color: var(--ink-soft); margin-bottom: 5px; }
+.post-meta .tag {
+  display: inline-block; background: #eef2f6; border: 1px solid #b9c2cc;
+  color: var(--module-deep); font-weight: bold; padding: 0 6px; margin-left: 5px;
+}
+.post-excerpt { font-size: 11.5px; color: #4a5563; }
+.post-more { font-size: 11px; font-weight: bold; }
+
+/* "coming soon" placeholder for empty scaffolds */
+.coming-soon {
+  text-align: center; padding: 28px 16px; color: var(--ink-soft);
+  background: #fbfcfe; border: 1px dashed var(--line); margin-top: 10px;
+}
+.coming-soon .big {
+  font-family: Georgia, serif; font-size: 18px; color: var(--module-deep); margin-bottom: 4px;
+}
+.coming-soon .barber-line {
+  height: 14px; margin: 12px auto 0; max-width: 240px;
+  background: repeating-linear-gradient(45deg, #f5c518 0 10px, #1a1a1a 10px 20px);
+  background-size: 28px 28px; border: 1px solid #1a1a1a;
+  animation: barber .6s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) { .coming-soon .barber-line { animation: none; } }
+
+/* a simple content sidebar box used on inner pages */
+.aside-box { margin-bottom: 14px; }
+.aside-box h3 {
+  font-family: Arial, sans-serif; font-size: 12px; color: var(--module-deep);
+  border-bottom: 1px solid var(--rule); padding-bottom: 3px; margin-bottom: 5px;
+}
+
+@media (max-width: 800px) {
+  .cols.inner { grid-template-columns: 1fr; }
+}
