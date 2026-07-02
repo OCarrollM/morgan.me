@@ -63,6 +63,8 @@
 .ic-os  { background: linear-gradient(135deg,#b69be6,#6a4aa8); }
 .ic-aws { background: linear-gradient(135deg,#ffc46b,#f08a18); }
 .ic-k8  { background: linear-gradient(135deg,#7fd6a6,#239a5c); }
+.ic-diss { background: linear-gradient(135deg, #3a1043, #380a59); }
+.ic-tpc { background: linear-gradient(135deg, #d87c0c, #cdb125); }
 .ic-qdk { background: linear-gradient(135deg, #1f5d92, #1f9be8); }
 .ic-tui { background: linear-gradient(135deg, #db430c, #e8511f); }
 .pcard-main { flex: 1 1 auto; min-width: 0; }
