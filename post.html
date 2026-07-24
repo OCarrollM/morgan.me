@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>morgan.me :: Blog</title>
+<link rel="stylesheet" href="css/msn-portal.css">
+<link rel="stylesheet" href="css/msn-combined.css">
+<link rel="stylesheet" href="css/pages.css">
+<link rel="stylesheet" href="css/blog.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%231f5096'/><text x='50' y='74' font-size='58' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>m</text></svg>">
+</head>
+<body>
+
+<div class="portal" data-screen-label="Blog Post">
+
+  <header class="masthead">
+    <div class="masthead-grid">
+      <div class="logo">morgan<span class="dot">.</span>me<span class="fly"></span></div>
+      <div class="cat-row">
+        <span class="cat-label">Select a page:</span>
+        <span class="cats">
+          <a href="Combined Edition.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a class="on" href="blog.html">Blog</a>
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <div class="content">
+    <div class="page-head">
+      <div class="breadcrumb"><a href="Combined Edition.html">Home</a> &rsaquo; <a href="blog.html">Blog</a> &rsaquo; <span id="pf-crumb">Post</span></div>
+      <div class="page-title" id="pf-title">Loading&hellip;</div>
+    </div>
+
+    <div class="cols inner">
+
+      <nav class="col-left">
+        <div class="navgroup">
+          <h3>Navigate</h3>
+          <ul class="navlist">
+            <li><a href="blog.html">&laquo; All posts</a></li>
+            <li><a href="Combined Edition.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+          </ul>
+        </div>
+        <div class="sidebar-note">
+          <b>&#9993; Enjoyed this?</b><br>
+          <a href="mailto:morganocarroll01@gmail.com">Drop me a line</a> or find me on <a href="https://github.com/OCarrollM" target="_blank">GitHub</a>.
+        </div>
+      </nav>
+
+      <main class="col-mid">
+
+        <div class="blog-state" id="loading-state">
+          <div class="big">Loading post&hellip;</div>
+        </div>
+        <div class="blog-state" id="error-state" style="display:none;">
+          <div class="big">&#128268; Blog backend not connected</div>
+          <div>Set <code>API_BASE</code> in <code>redesign/js/blog-api.js</code>. (See <code>blog-backend/README.md</code>.)</div>
+        </div>
+        <div class="blog-state" id="notfound-state" style="display:none;">
+          <div class="big">&#129300; Post not found</div>
+          <div>That post doesn't exist (or was removed). <a href="blog.html">Back to the blog &raquo;</a></div>
+        </div>
+
+        <article class="post-full prose" id="post-full" style="display:none;">
+          <div class="admin-bar" id="pf-admin" style="display:none;">
+            <span class="who">&#9733; Webmaster</span>
+            <span class="spacer"></span>
+            <a class="btn-plain" id="pf-edit" href="#" style="text-decoration:none;padding:4px 12px;">&#9998; Edit</a>
+            <button class="btn-danger" id="pf-del">&#10005; Delete</button>
+          </div>
+          <div class="byline" id="pf-byline"></div>
+          <div class="post-tags" id="pf-tags" style="margin-bottom:12px;"></div>
+          <div id="pf-body"></div>
+          <div class="post-nav">
+            <a href="blog.html">&laquo; All posts</a>
+            <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top &uarr;</a>
+          </div>
+        </article>
+
+      </main>
+
+    </div>
+  </div>
+
+</div>
+
+<script src="js/msn-portal.js"></script>
+<script src="redesign/js/blog-api.js?v=1"></script>
+<script src="redesign/js/post.js?v=1"></script>
+</body>
+</html>

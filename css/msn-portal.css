@@ -92,7 +92,8 @@ h1, h2, h3 { margin: 0; }
 }
 .cat-row, .search-row { display: flex; align-items: center; gap: 0; }
 .cat-row { gap: 10px; }
-.cat-label, .search-label { color: #d6e4f6; font-size: 11px; white-space: nowrap; }
+.cat-label { color: #fff; font-size: 11px; white-space: nowrap; }
+.search-label { color: #000; font-size: 11px; white-space: nowrap; }
 .cats { display: flex; gap: 2px; }
 .cats a {
   color: #eaf2fb; text-decoration: none; font-weight: bold; font-size: 11px;
@@ -103,7 +104,7 @@ h1, h2, h3 { margin: 0; }
   background: linear-gradient(to bottom, #7ec64a, #5fa015);
   border: 1px solid #4a7d10; color: #fff; text-shadow: 0 1px 1px rgba(0,0,0,.25);
 }
-.search-row { gap: 10px; margin-top: 2px; }
+.search-row { gap: 10px; margin-top: 2px; margin-bottom: 16px; }
 .search-row form { display: flex; gap: 0; flex: 1 1 auto; max-width: 520px; }
 .search-row input {
   flex: 1 1 auto; font: inherit; font-size: 12px; padding: 4px 8px;
@@ -203,6 +204,7 @@ h1, h2, h3 { margin: 0; }
 .aboutblurb {
   font-size: 11.5px; color: var(--ink); background: var(--module-soft);
   border: 1px solid var(--rule); padding: 10px 12px;
+  margin-bottom: 16px;
 }
 .aboutblurb h2 { font-family: Arial, sans-serif; font-size: 13px; color: var(--module-deep); margin-bottom: 4px; }
 

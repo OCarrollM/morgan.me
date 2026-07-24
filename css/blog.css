@@ -1,0 +1,162 @@
+/* =================================================================
+   morgan.me — Blog styles (index, single post, compose editor)
+   Builds on msn-portal.css / pages.css tokens. Load LAST.
+   ================================================================= */
+
+/* ---------- ADMIN BAR ---------- */
+.admin-bar {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  background: linear-gradient(to bottom, #fffbe6, #fff2bf);
+  border: 1px solid #d9c86a; padding: 6px 10px; margin-bottom: 12px; font-size: 11px;
+}
+.admin-bar .who { color: #7a5a10; font-weight: bold; }
+.admin-bar .spacer { flex: 1 1 auto; }
+.admin-bar button, .admin-login button {
+  font-family: Arial, sans-serif; font-weight: bold; font-size: 11px; cursor: pointer;
+  color: #fff; border: 1px solid #4a7d10; padding: 4px 12px;
+  background: linear-gradient(to bottom, #7ec64a, #5fa015);
+}
+.admin-bar button:hover, .admin-login button:hover { background: linear-gradient(to bottom, #8ed35a, #6cb31c); }
+.admin-bar .btn-plain {
+  color: #2f4a63; border: 1px solid #97a4b2;
+  background: linear-gradient(to bottom, #fdfdfe, #dde3ea);
+}
+.admin-bar .btn-plain:hover { background: linear-gradient(to bottom, #fff, #e6ecf2); }
+.admin-bar .btn-danger { border-color: #8a261b; background: linear-gradient(to bottom, #d9534f, #b52b25); }
+
+/* small key link bottom-right to open admin login */
+.admin-key {
+  display: inline-block; margin-left: 6px; color: #9fb0c2; text-decoration: none; font-size: 11px;
+}
+.admin-key:hover { color: var(--orange); }
+
+/* login popover */
+.admin-login {
+  background: #fff; border: 1px solid var(--line); box-shadow: 4px 4px 0 rgba(48,64,86,.16);
+  padding: 12px; margin-bottom: 12px; max-width: 320px;
+}
+.admin-login h3 { font-family: Arial, sans-serif; font-size: 12px; color: var(--module-deep); margin: 0 0 7px; }
+.admin-login input {
+  width: 100%; font: inherit; font-size: 12px; padding: 5px 7px; margin-bottom: 8px;
+  border: 1px solid #97a4b2; box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+}
+.admin-login .err { color: #b52b25; font-size: 10px; margin: -4px 0 8px; display: none; }
+.admin-login .row { display: flex; gap: 6px; }
+
+/* ---------- POST LIST (index) ---------- */
+.post-thumb {
+  float: right; width: 96px; height: 72px; margin: 0 0 6px 12px;
+  border: 1px solid var(--line); background: #eef2f6 center/cover no-repeat; image-rendering: auto;
+}
+.post .post-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+.tag-chip {
+  font-size: 10px; font-weight: bold; color: var(--module-deep); text-decoration: none;
+  background: #eef2f6; border: 1px solid #b9c2cc; padding: 1px 7px;
+}
+.tag-chip:hover { color: var(--orange); border-color: var(--orange); }
+.post-admin-row { margin-top: 7px; display: flex; gap: 6px; }
+.post-admin-row a {
+  font-size: 10px; font-weight: bold; text-decoration: none; padding: 2px 8px;
+  border: 1px solid #97a4b2; background: linear-gradient(to bottom, #fdfdfe, #dde3ea); color: #2f4a63;
+}
+.post-admin-row a.del { border-color: #c0392b; color: #b52b25; }
+.post-admin-row a:hover { background: linear-gradient(to bottom, #fff, #eef3f8); }
+
+/* filter banner */
+.filter-banner {
+  display: none; align-items: center; justify-content: space-between; gap: 10px;
+  background: var(--module-soft); border: 1px solid var(--rule); padding: 6px 10px; margin-bottom: 12px; font-size: 11px;
+}
+.filter-banner.on { display: flex; }
+.filter-banner b { color: var(--module-deep); }
+.filter-banner a { font-weight: bold; }
+
+/* loading / empty / error states */
+.blog-state {
+  text-align: center; padding: 26px 16px; color: var(--ink-soft);
+  background: #fbfcfe; border: 1px dashed var(--line);
+}
+.blog-state .big { font-family: Georgia, serif; font-size: 16px; color: var(--module-deep); margin-bottom: 4px; }
+.blog-state code { font-family: "Courier New", monospace; background: #eef2f6; border: 1px solid #d2dde8; padding: 0 4px; }
+
+/* archive sidebar (active state) */
+.navlist a.on { color: var(--orange); font-weight: bold; }
+.navlist .count { color: var(--ink-soft); font-size: 9px; margin-left: 4px; }
+
+/* ---------- SINGLE POST ---------- */
+.post-full .post-hero {
+  width: 100%; max-height: 320px; object-fit: cover; display: block;
+  border: 1px solid var(--line); margin-bottom: 12px;
+}
+.post-full .byline { font-size: 11px; color: var(--ink-soft); margin: 2px 0 12px; }
+.post-full .byline b { color: var(--orange-deep); }
+.post-nav {
+  display: flex; justify-content: space-between; margin-top: 20px; padding-top: 12px;
+  border-top: 1px dotted var(--rule); font-size: 11px; font-weight: bold;
+}
+
+/* ---------- COMPOSE / EDIT OVERLAY ---------- */
+.compose-overlay {
+  display: none; position: fixed; inset: 0; z-index: 50;
+  background: rgba(20,32,54,.55); padding: 24px 16px; overflow-y: auto;
+}
+.compose-overlay.on { display: block; }
+.compose {
+  width: 720px; max-width: 96vw; margin: 0 auto; background: #fff;
+  border: 1px solid #0f2f5e; box-shadow: 6px 6px 0 rgba(0,0,0,.3);
+}
+.compose-head {
+  background: linear-gradient(to bottom, #4a82bf, var(--module));
+  color: #fff; font-family: Arial, sans-serif; font-weight: bold; font-size: 12px;
+  padding: 7px 12px; display: flex; align-items: center; justify-content: space-between;
+  text-shadow: 0 1px 1px rgba(0,0,0,.3);
+}
+.compose-head .x { color: #fff; text-decoration: none; font-size: 15px; cursor: pointer; }
+.compose-body { padding: 14px; }
+.compose-body label { display: block; font-size: 11px; font-weight: bold; color: #4a5563; margin: 0 0 3px; }
+.compose-body .field { margin-bottom: 11px; }
+.compose-body input[type=text] {
+  width: 100%; font: inherit; font-size: 13px; padding: 6px 8px;
+  border: 1px solid #97a4b2; box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+}
+.compose-body .hint { font-size: 10px; color: var(--ink-soft); margin-top: 2px; }
+
+/* rich toolbar */
+.rt-toolbar { display: flex; flex-wrap: wrap; gap: 3px; border: 1px solid #97a4b2; border-bottom: none; background: linear-gradient(to bottom, #f3f8fc, #dfeaf4); padding: 4px; }
+.rt-toolbar button {
+  font-family: Georgia, serif; font-size: 12px; min-width: 26px; height: 24px; cursor: pointer;
+  border: 1px solid #b9c2cc; background: linear-gradient(to bottom, #fff, #e6ecf2); color: #2f4a63;
+}
+.rt-toolbar button:hover { background: #fff; border-color: var(--module); }
+.rt-toolbar .sep { width: 1px; background: #c2cdd8; margin: 2px 3px; }
+.rt-editor {
+  min-height: 200px; max-height: 46vh; overflow-y: auto; font-size: 13px; line-height: 1.6; color: var(--ink);
+  border: 1px solid #97a4b2; padding: 10px 12px; background: #fff;
+}
+.rt-editor:focus { outline: 2px solid #a9cbe8; }
+.rt-editor img { max-width: 100%; height: auto; border: 1px solid var(--line); }
+.rt-editor:empty::before { content: attr(data-ph); color: #9fb0c2; }
+.rt-editor h2 { font-family: Georgia, serif; font-size: 16px; color: var(--module-deep); margin: 12px 0 6px; }
+.rt-editor pre { font-family: "Courier New", monospace; font-size: 12px; background: #14200d; color: #d6e9c8; padding: 8px 10px; overflow-x: auto; }
+
+.compose-foot { display: flex; align-items: center; gap: 8px; border-top: 1px solid var(--rule); padding: 10px 14px; background: #f4f7fa; }
+.compose-foot .spacer { flex: 1 1 auto; }
+.compose-foot .status { font-size: 11px; color: var(--ink-soft); }
+.compose-foot .status.err { color: #b52b25; font-weight: bold; }
+.btn-save {
+  font-family: Arial, sans-serif; font-weight: bold; font-size: 12px; cursor: pointer; color: #fff;
+  border: 1px solid #4a7d10; padding: 7px 18px; background: linear-gradient(to bottom, #7ec64a, #5fa015);
+}
+.btn-save:hover { background: linear-gradient(to bottom, #8ed35a, #6cb31c); }
+.btn-save:disabled { opacity: .55; cursor: default; }
+.btn-cancel {
+  font-family: Arial, sans-serif; font-weight: bold; font-size: 12px; cursor: pointer; color: #2f4a63;
+  border: 1px solid #97a4b2; padding: 7px 14px; background: linear-gradient(to bottom, #fdfdfe, #dde3ea);
+}
+
+/* uploading spinner note */
+.upload-note { font-size: 10px; color: var(--module-deep); }
+
+@media (max-width: 800px) {
+  .post-thumb { float: none; width: 100%; height: 120px; margin: 0 0 8px; }
+}
