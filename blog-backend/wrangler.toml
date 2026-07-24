@@ -1,0 +1,17 @@
+name = "morgan-blog-api"
+main = "worker.js"
+compatibility_date = "2026-06-01"
+
+# Not secret — your site's origin, used for CORS.
+[vars]
+ALLOW_ORIGIN = "https://morganoc.me"
+
+# Fill database_id in from the output of `wrangler d1 create morgan-blog`.
+[[d1_databases]]
+binding = "DB"
+database_name = "morgan-blog"
+database_id = "9010a0e6-5f52-4712-891f-c0705860ee32"
+
+# Secrets are NOT stored here. Set them with:
+#   wrangler secret put ADMIN_PASSWORD
+#   wrangler secret put TOKEN_SECRET
