@@ -160,6 +160,7 @@
     setStatus('', false);
     $('#compose-overlay').classList.add('on');
     $('#f-title').focus();
+    syncToolbarState()
   }
   function closeCompose() { $('#compose-overlay').classList.remove('on'); editingId = null; }
 
@@ -174,6 +175,15 @@
     var tb = $('#rt-toolbar');
     if (!tb) return;
     tb.addEventListener('click', function (e) {
+      var ed = $('#rt-editor');
+      if (ed) {
+        ['keyup', 'mouseup', 'input', 'focus'].forEach(function (evt) {
+          ed.addEventListener(evt, syncToolbarState);
+        });
+        document.addEventListener('selectionchange', function () {
+          if (document.activeElement === ed) syncToolbarState();
+        });
+      }
       var b = e.target.closest('button'); if (!b) return;
       e.preventDefault();
       var cmd = b.getAttribute('data-cmd');
@@ -276,3 +286,25 @@
 
   document.addEventListener('DOMContentLoaded', boot);
 })();
+
+function syncToolbarState() {
+  var tb = document.getElementById('rt-toolbar');
+  if (!tb) return;
+  // Only sync buttons that have a queryable on/off state.
+  var stateCmds = { bold: 1, italic: 1, underline: 1,
+                    insertUnorderedList: 1, insertOrderedList: 1 };
+  var blockNow = '';
+  try { blockNow = (document.queryCommandValue('formatBlock') || '').toLowerCase(); } catch (e) {}
+
+  [].forEach.call(tb.querySelectorAll('button'), function (b) {
+    var cmd = b.getAttribute('data-cmd');
+    var on = false;
+    if (stateCmds[cmd]) {
+      try { on = document.queryCommandState(cmd); } catch (e) { on = false; }
+    } else if (cmd === 'formatBlock') {
+      // H2 / quote / code — active when the caret is in that block type.
+      on = blockNow === b.getAttribute('data-val');
+    }
+    b.classList.toggle('active', on);
+  });
+}

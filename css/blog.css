@@ -128,6 +128,19 @@
   border: 1px solid #b9c2cc; background: linear-gradient(to bottom, #fff, #e6ecf2); color: #2f4a63;
 }
 .rt-toolbar button:hover { background: #fff; border-color: var(--module); }
+/* pressed/active state — cursor is inside this formatting */
+.rt-toolbar button.active {
+  background: linear-gradient(to bottom, #cfe0f0, #b6cde4);
+  border-color: var(--module);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25);
+  color: #1c3a4b;
+}
+/* brief flash on click, for buttons without a lasting state (link, clear) */
+.rt-toolbar button:active {
+  background: #cfe0f0;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
 .rt-toolbar .sep { width: 1px; background: #c2cdd8; margin: 2px 3px; }
 .rt-editor {
   min-height: 200px; max-height: 46vh; overflow-y: auto; font-size: 13px; line-height: 1.6; color: var(--ink);
