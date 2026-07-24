@@ -4,7 +4,7 @@ compatibility_date = "2026-06-01"
 
 # Not secret — your site's origin, used for CORS.
 [vars]
-ALLOW_ORIGIN = "https://morganoc.me"
+ALLOW_ORIGIN = "https://www.morganoc.me"
 
 # Fill database_id in from the output of `wrangler d1 create morgan-blog`.
 [[d1_databases]]

@@ -81,7 +81,7 @@ export default {
 
 async function listPosts(env, tag) {
   let sql =
-    'SELECT id, slug, title, excerpt, tags, created_at, updated_at FROM posts WHERE published = 1';
+    'SELECT id, slug, title, excerpt, tags, images, created_at, updated_at FROM posts WHERE published = 1';
   const binds = [];
   if (tag) {
     // tags is a JSON array string; match the quoted tag inside it.
@@ -109,17 +109,20 @@ async function createPost(env, data) {
   const now = new Date().toISOString();
   const title = (data.title || 'Untitled').trim();
   const slug = await uniqueSlug(env, data.slug || slugify(title));
+  // Front-end sends the body as `contentHtml`; accept `body` as a fallback.
+  const body = data.contentHtml ?? data.body ?? '';
 
   const res = await env.DB.prepare(
-    `INSERT INTO posts (slug, title, body, excerpt, tags, published, created_at, updated_at)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?)`
+    `INSERT INTO posts (slug, title, body, excerpt, tags, images, published, created_at, updated_at)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`
   )
     .bind(
       slug,
       title,
-      data.body || '',
+      body,
       data.excerpt || '',
       JSON.stringify(Array.isArray(data.tags) ? data.tags : []),
+      JSON.stringify(Array.isArray(data.images) ? data.images : []),
       data.published === false ? 0 : 1,
       now,
       now
@@ -135,15 +138,18 @@ async function updatePost(env, id, data) {
     .first();
   if (!existing) return null;
 
+  const body = data.contentHtml ?? data.body ?? existing.body;
+
   await env.DB.prepare(
-    `UPDATE posts SET title = ?, body = ?, excerpt = ?, tags = ?, published = ?, updated_at = ?
+    `UPDATE posts SET title = ?, body = ?, excerpt = ?, tags = ?, images = ?, published = ?, updated_at = ?
      WHERE id = ?`
   )
     .bind(
       data.title ?? existing.title,
-      data.body ?? existing.body,
+      body,
       data.excerpt ?? existing.excerpt,
       data.tags ? JSON.stringify(data.tags) : existing.tags,
+      data.images ? JSON.stringify(data.images) : (existing.images || '[]'),
       data.published === false ? 0 : 1,
       new Date().toISOString(),
       id
@@ -157,8 +163,22 @@ async function updatePost(env, id, data) {
 
 function shape(row) {
   let tags = [];
+  let images = [];
   try { tags = JSON.parse(row.tags || '[]'); } catch { tags = []; }
-  return { ...row, tags, published: row.published === 1 };
+  try { images = JSON.parse(row.images || '[]'); } catch { images = []; }
+  return {
+    id: row.id,
+    slug: row.slug,
+    title: row.title,
+    excerpt: row.excerpt,
+    // body is only present on single-post SELECT * (not the list query)
+    contentHtml: row.body,      // front-end reads p.contentHtml
+    tags,
+    images,
+    published: row.published === 1,
+    createdAt: row.created_at,   // front-end reads p.createdAt
+    updatedAt: row.updated_at,   // front-end reads p.updatedAt
+  };
 }
 
 function slugify(s) {

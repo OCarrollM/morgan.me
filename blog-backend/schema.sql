@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS posts (
   body        TEXT    NOT NULL DEFAULT '',
   excerpt     TEXT    NOT NULL DEFAULT '',
   tags        TEXT    NOT NULL DEFAULT '[]',   -- JSON array, e.g. ["space","k8s"]
+  images      TEXT    NOT NULL DEFAULT '[]',   -- JSON array of image URLs found in the body
   published   INTEGER NOT NULL DEFAULT 1,      -- 0 = draft, hidden from public list
   created_at  TEXT    NOT NULL,
   updated_at  TEXT    NOT NULL
