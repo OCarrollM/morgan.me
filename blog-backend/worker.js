@@ -49,16 +49,21 @@ export default {
       }
 
       if (method === 'PUT' && path.startsWith('/api/posts/')) {
-        const id = Number(path.slice('/api/posts/'.length));
+        const key = decodeURIComponent(path.slice('/api/posts/'.length));
+        const id = await resolveId(env, key);
+        if (id === null) return json({ error: 'Not found' }, env, 404);
         const updated = await updatePost(env, id, await safeJson(request));
         if (!updated) return json({ error: 'Not found' }, env, 404);
         return json(updated, env);
       }
 
       if (method === 'DELETE' && path.startsWith('/api/posts/')) {
-        const id = Number(path.slice('/api/posts/'.length));
-        await env.DB.prepare('DELETE FROM posts WHERE id = ?').bind(id).run();
-        return json({ ok: true }, env);
+        const key = decodeURIComponent(path.slice('/api/posts/'.length));
+        const id = await resolveId(env, key);
+        if (id === null) return json({ error: 'Not found' }, env, 404);
+        const res = await env.DB.prepare('DELETE FROM posts WHERE id = ?').bind(id).run();
+        // Report how many rows actually went, so a no-op can't look like success.
+        return json({ ok: true, deleted: res.meta.changes || 0 }, env);
       }
 
       if (method === 'POST' && path === '/api/upload') {
@@ -103,6 +108,17 @@ async function getPost(env, key) {
     .bind(byId ? Number(key) : key)
     .first();
   return row ? shape(row) : null;
+}
+
+// Resolve a slug-or-id path segment to the row's numeric id (or null).
+async function resolveId(env, key) {
+  const byId = /^\d+$/.test(key);
+  const row = await env.DB.prepare(
+    `SELECT id FROM posts WHERE ${byId ? 'id' : 'slug'} = ?`
+  )
+    .bind(byId ? Number(key) : key)
+    .first();
+  return row ? row.id : null;
 }
 
 async function createPost(env, data) {
